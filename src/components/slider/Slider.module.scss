@@ -1,0 +1,13 @@
+.sliderWrapper {
+  position: relative; /* Важно для позиционирования значения */
+
+  .sliderTrack { 
+    width: 100%;
+  }
+
+  .sliderValue {
+    position: absolute;
+    top: -25px; /* Позиционируем над ползунком */
+    transform: translateX(-50%); /* Центрируем текст */
+  }
+}
