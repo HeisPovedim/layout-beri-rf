@@ -1,0 +1,36 @@
+@import "../app/globals.scss";
+
+.box_slider {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 487px;
+  height: 514px;
+  gap: 0px;
+  border-radius: 30px 0px 0px 0px;
+  opacity: 0px;
+  background-color: #ffffff;
+  box-shadow: 3px 9px 13px 0px #00000021;
+}
+
+.box_slider__title {
+  font-family: "Gilroy-SemiBold";
+  font-size: 40px;
+  color: #13245d;
+  padding-top: 41px;
+}
+
+.box_slider__description span {
+  color: #e84b37;
+}
+
+.box_slider__slider {
+  display: flex;
+  flex-direction: column;
+  padding-top: 140px;
+}
+
+.box_slider__slider_price {
+  display: flex;
+  justify-content: space-between
+}
