@@ -1,0 +1,21 @@
+.cardCredit__top,
+.cardCredit__middle,
+.cardCredit__lower {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cardCredit {
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  background-color: #b0b5c566;
+  padding: 20px;
+  width: 367px;
+  margin-right: 19px;
+}
+
+.cardCredit__top {
+  
+}

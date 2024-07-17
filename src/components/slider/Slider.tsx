@@ -1,62 +1,66 @@
+// # CLIENT COMPONENT
 "use client";
-import React, { useState, useEffect, useRef } from "react";
-import RCSlider from "rc-slider";
-import "rc-slider/assets/index.css";
+
+// # REACT
+import React, { useEffect, useRef, useState } from "react";
+
+// # LIBRARY
+import noUiSlider, { API } from "nouislider";
+
+// # STYLE
 import style from "./Slider.module.scss";
+import "../../../assets/custom-slider.scss";
 
-const Slider: React.FC = () => {
-  const [value, setValue] = useState<number>(1000);
-  const sliderRef = useRef<HTMLDivElement>(null);
-  const valueRef = useRef<HTMLSpanElement>(null);
+interface HTMLDivElementWithSlider extends HTMLDivElement {
+  noUiSlider?: API;
+}
 
-  const handleChange: (newValue: number | number[]) => void = (newValue) => {
-    if (Array.isArray(newValue)) {
-      setValue(newValue[0]);
-    } else {
-      setValue(newValue);
-    }
-  };
+// ^ COMPONENT VISION SLIDER
+const CSlider: React.FC = () => {
+  const [value, setValue] = useState<number | number[]>();
+  const sliderRef = useRef<HTMLDivElementWithSlider>(null);
 
   useEffect(() => {
-    const updateValuePosition = () => {
-      if (sliderRef.current && valueRef.current) {
-        const sliderWidth = sliderRef.current.offsetWidth;
-        const valueWidth = valueRef.current.offsetWidth;
-        const position =
-          ((value - 1000) / (100000 - 1000)) * (sliderWidth - valueWidth);
+    const slider = sliderRef.current;
 
-        const maxPosition = sliderWidth - valueWidth;
-        const adjustedPosition = Math.min(position, maxPosition);
-
-        valueRef.current.style.left = `${adjustedPosition}px`;
+    if (slider) {
+      if (slider.noUiSlider) {
+        slider.noUiSlider.destroy();
       }
-    };
 
-    updateValuePosition(); // Вызываем функцию при монтировании
+      noUiSlider.create(slider, {
+        start: [1000],
+        range: {
+          min: 1000,
+          max: 100000,
+        },
+        step: 1000,
+        tooltips: {
+          to: function (value) {
+            return Math.floor(value).toLocaleString('ru-RU') + " ₽";
+          },
+        },
+        connect: [true, false],
+      });
 
-    window.addEventListener("resize", updateValuePosition);
-    return () => window.removeEventListener("resize", updateValuePosition);
-  }, [value]); // Добавляем value в зависимости
+      slider.noUiSlider?.on(
+        "update",
+        (values: (number | string)[], handle: number) => {
+          setValue(values.map((value) => parseFloat(value as string)));
+        }
+      );
 
-  return (
-    <div className={style.sliderWrapper}>
-      <div ref={sliderRef} className={style.sliderTrack}>
-        {" "}
-        {/* Добавлен ref и класс для трека */}
-        <RCSlider
-          min={1000}
-          max={100000}
-          step={500}
-          onChange={handleChange}
-          value={value}
-        />
-        <span ref={valueRef} className={style.sliderValue}>
-          {value}
-        </span>{" "}
-        {/* Добавлен ref для значения */}
-      </div>
-    </div>
-  );
+      return () => {
+        if (slider.noUiSlider) {
+          slider.noUiSlider.destroy();
+        }
+      };
+    } else {
+      console.error("Slider element not found");
+    }
+  }, []);
+
+  return <div className={style.slider} ref={sliderRef}></div>;
 };
 
-export default Slider;
+export default CSlider;
