@@ -1,0 +1,25 @@
+.cardCredit,
+.cardCredits > span,
+.cardCredits__box {
+  display: flex;
+}
+
+.boxSlider__title,
+.boxSlider__button,
+.cardCredits > span {
+  font-family: "Gilroy-SemiBold";
+}
+
+.cardCredits {
+  margin: 115px 150px 0px 150px;
+  & > span {
+    justify-content: center;
+    font-size: 36px;
+    color: #13245d;
+  }
+  &__box {
+    margin-top: 50px;
+    justify-content: center;
+    gap: 20px;
+  }
+}

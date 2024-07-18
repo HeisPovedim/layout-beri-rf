@@ -2,15 +2,15 @@
 import Image from "next/image";
 
 //# STYLES
-import style from "./BasicSlider.module.scss";
+import style from "./Cover.module.scss";
 
 //# COMPONENTS
-import Slider from "@/components/Slider/Slider";
+import Slider from "@/components/common/Slider/Slider";
 
 //# ASSETS
-import quick_loan_human from "@assets/quick-loan-human.svg";
+import quick_loan_human from "@assets/img/quick-loan-human.svg";
 
-export default function BasicSlider() {
+export default function Cover(): JSX.Element {
   return (
     <div className={style.infoSlider}>
       <div className={style.boxInfo}>

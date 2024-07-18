@@ -2,22 +2,20 @@ import Image from "next/image";
 
 //# STYLISH
 import style from "./CardCredit.module.scss";
-import "./CardCredit.scss";
 
 type TCardCredit = {
-  logo: any;
+  logo: HTMLImageElement;
   title: string;
   loanSum: number;
   percent: number;
   periodWith: number;
   periodAbout: number;
   bet: number;
-  className: string;
 };
 
 export default function CardCredit(props: TCardCredit): JSX.Element {
   return (
-    <div className={`${style.cardCredit} ${props.className}`}>
+    <div className={style.cardCredit}>
       <div className={style.cardCredit__title}>
         <Image src={props.logo} alt="Logo" />
         <span>{props.title}</span>

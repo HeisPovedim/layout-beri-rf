@@ -9,7 +9,7 @@ import noUiSlider, { API } from "nouislider";
 
 // # STYLE
 import style from "./Slider.module.scss";
-import "../../../assets/custom-slider.scss";
+import "@assets/custom-slider.scss";
 
 interface HTMLDivElementWithSlider extends HTMLDivElement {
   noUiSlider?: API;

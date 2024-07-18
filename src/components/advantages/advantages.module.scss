@@ -1,0 +1,32 @@
+.advantages,
+.advantages__items {
+  display: flex;
+}
+
+.advantages {
+  margin: 100px 150px 0 150px;
+  flex-direction: column;
+  align-items: center;
+
+  &__title {
+    font-family: "Gilroy-Bold";
+    font-size: 18px;
+    margin: 0px;
+    color: #e84b37;
+  }
+
+  &__description {
+    font-family: "Gilroy-Bold";
+    line-height: 120%;
+    font-size: 36px;
+    margin: 8px 0 0 0;
+    text-align: center;
+    color: #13245d;
+  }
+
+  &__items {
+    margin-top: 50px;
+    flex-direction: row;
+    gap: 130px;
+  }
+}
