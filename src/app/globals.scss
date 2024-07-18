@@ -277,14 +277,39 @@
   font-family: "Gilroy-Regular";
   background-image: url("../../assets/background.svg");
   background-repeat: no-repeat;
-  background-size: contain;
   background-position: top right;
   background-repeat: no-repeat;
 }
 
-.button {
-  font-family: "Gilroy-Medium";
+.custom-button-blue {
+  font-family: "Gilroy-Bold";
   color: #6588ff;
   border: 2px solid #6588ff;
-  border-radius: 13.29px;
+  border-radius: 13px;
+}
+
+.custom-button-blue:hover {
+  color: #ffffff;
+  background-color: #6588ff;
+}
+
+.custom-button-blue:active {
+  color: #ffffff;
+  background-color: #6588ff;
+}
+
+.custom-button-orange {
+  font-family: "Gilroy-SemiBold";
+  color: #ffffff;
+  background-color: #e84b37;
+  border-radius: 8px;
+  border: 0;
+}
+
+.custom-button-orange:hover {
+  background-color: #D53621;
+}
+
+.custom-button-orange:active {
+  background-color: #D53621;
 }

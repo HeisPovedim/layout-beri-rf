@@ -13,7 +13,7 @@ export default function CHeader() {
           <span>Новости</span>
           <span>Контакты</span>
         </div>
-        <div className={`${style.header__logIn} button`}>Войти</div>
+        <button className={`${style.header__logIn} custom-button-blue`}>Войти</button>
       </div>
     </>
   );
