@@ -1,3 +1,3 @@
-export default function creditRating ():JSX.Element {
+export default function CreditRating ():JSX.Element {
 
 }

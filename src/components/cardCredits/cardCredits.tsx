@@ -2,7 +2,7 @@
 import CardCredit from "../common/CardCredit/CardCredit";
 
 //# STYLES
-import style from "./cardCredits.module.scss";
+import style from "./CardCredits.module.scss";
 
 //# ASSETS
 import card_credit_first from "@assets/img/card-credit-1.svg";

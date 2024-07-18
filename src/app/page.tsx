@@ -1,8 +1,8 @@
 //# COMPONENTS
-import Header from "@/components/header/header";
+import Header from "@/components/Header/Header";
 import Cover from "@/components/Cover/Cover";
-import CardCredits from "@/components/cardCredits/cardCredits";
-import Advantages from "@/components/advantages/advantages";
+import CardCredits from "@/components/CardCredits/CardCredits";
+import Advantages from "@/components/Advantages/Advantages";
 
 //# STYLISH
 import style from "./page.module.scss";
