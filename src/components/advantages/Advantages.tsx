@@ -1,8 +1,8 @@
 //# COMPONENTS
-import ItemSuperiority from "../ItemSuperiority/ItemSuperiority";
+import ItemSuperiority from "../common/ItemSuperiority/ItemSuperiority";
 
 //# STYLES
-import style from "./advantages.module.scss";
+import style from "./Advantages.module.scss";
 
 //# ASSETS
 import advantages_item_1 from "@assets/img/advantages-item-1.svg";

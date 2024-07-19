@@ -1,0 +1,17 @@
+.articles {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  & h1 {
+    margin: 0;
+  }
+
+  &__box {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 50px;
+  }
+}

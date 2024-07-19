@@ -1,0 +1,60 @@
+.creditRating,
+.creditRating__description {
+  display: flex;
+}
+
+.creditRating {
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #F8FAFF;
+  padding: 40px 80px;
+  border-radius: 40px;
+  margin-top: 100px;
+
+  &__description {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    & h1 {
+      font-family: "Gilroy-SemiBold";
+      line-height: 150%;
+      color: #13245D;
+    }
+
+    & h1 > span {
+      position: relative;
+      font-size: 28px;
+      color: #ffffff;
+      background-color: #6588FF;
+      border-radius: 100px;
+      padding: 8px 20px;
+    }
+
+    & h1 > span::after {
+      content: "";
+      position: absolute;
+      background: url("../../../assets/img/star.svg");
+      width: 17px;
+      height: 17px;
+      top: 2mm;
+      left: 0.5mm;
+    }
+
+    & span {
+      font-size: 22px;
+      text-align: center;
+      color: #13245D;
+      margin-top: 25px;
+    }
+
+    & button {
+      margin-top: 40px;
+      padding: 20px 25px;
+      font-size: 26px;
+    }
+
+  }
+}
+
+

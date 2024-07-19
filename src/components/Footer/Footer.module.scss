@@ -1,12 +1,14 @@
-@import "../../app/globals.scss";
-
-.header {
+.footer {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 30px;
+  flex-direction: column;
+  align-content: space-between;
+  margin: 155px 0 135px 0;
 
   &__menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 50px;
 
     & ul {
       display: flex;
@@ -30,8 +32,8 @@
       }
     }
   }
-}
 
-.header__logIn {
-  padding: 9px 17px;
+  &__description {
+    font-size: 10px;
+  }
 }
