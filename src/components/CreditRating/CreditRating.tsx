@@ -14,14 +14,14 @@ export default function CreditRating(): JSX.Element {
           <br />
           рейтинг <span>Бесплатно!</span>
         </h1>
-        <span>
+        <p>
           Расскажем, как построить положительную
           <br />
           финансовую репутацию, определить
           <br />
           недостатки в вашей кредитной истории
           <br />и решить их
-        </span>
+        </p>
         <button className="custom-button-orange">Узнать свой рейтинг</button>
       </div>
       <div className={style.cardCredits__indicator}>

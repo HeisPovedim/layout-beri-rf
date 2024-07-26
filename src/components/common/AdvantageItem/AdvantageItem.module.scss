@@ -1,0 +1,14 @@
+.advantages__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+
+  & p {
+    margin: 0;
+    font-family: "Gilroy-SemiBold";
+    font-size: 22px;
+    text-align: center;
+    line-height: 118%;
+  }
+}

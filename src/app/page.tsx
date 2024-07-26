@@ -1,13 +1,11 @@
-//# COMPONENTS
-import Header from "@/components/Hedaer/Header";
-import Cover from "@/components/Cover/Cover";
+import Header from "@/components/Header/Header";
+import CreditSlider from "@/components/CreditSlider/CreditSlider";
 import CardCredits from "@/components/CardCredits/CardCredits";
 import Advantages from "@/components/Advantages/Advantages";
 import CreditRating from "@/components/CreditRating/CreditRating";
 import Articles from "@/components/Articles/Articles";
 import Footer from "@/components/Footer/Footer";
 
-//# STYLISH
 import style from "./page.module.scss";
 
 export default function Home(): JSX.Element {
@@ -15,7 +13,7 @@ export default function Home(): JSX.Element {
     <>
       <div className={style.container}>
         <Header />
-        <Cover />
+        <CreditSlider />
         <CardCredits />
         <Advantages />
         <CreditRating />

@@ -1,25 +1,30 @@
-.cardCredit,
-.cardCredits > span,
-.cardCredits__box {
+.cardCredits__title,
+.cardCredits__items {
   display: flex;
 }
 
-.boxSlider__title,
-.boxSlider__button,
-.cardCredits > span {
+.cardCredits__title {
   font-family: "Gilroy-SemiBold";
 }
 
 .cardCredits {
-  margin-top: 115px;
-  & > span {
+  margin-top: 100px;
+
+  &__title {
+    margin: 0;
     justify-content: center;
     font-size: 36px;
     color: #13245d;
   }
-  &__box {
+
+  &__items {
     margin-top: 50px;
     justify-content: center;
+    flex-wrap: wrap;
     gap: 20px;
+  }
+
+  @media (max-width: 1200px) {
+    margin-top: 40px;
   }
 }

@@ -1,21 +1,21 @@
 //# COMPONENTS
-import CardCredit from "../common/CardCredit/CardCredit";
+import CardCreditItem from "../common/CardCreditItem/CardCreditItem";
 
 //# STYLES
 import style from "./CardCredits.module.scss";
 
 //# ASSETS
-import card_credit_first from "@assets/img/card-credit-1.svg";
-import card_credit_second from "@assets/img/card-credit-2.svg";
-import card_credit_third from "@assets/img/card-credit-3.svg";
+import item_1 from "./img/card-credit-1.svg";
+import item_2 from "./img/card-credit-2.svg";
+import item_3 from "./img/card-credit-3.svg";
 
 export default function CardCredits(): JSX.Element {
   return (
     <div className={style.cardCredits}>
-      <span>Лучшая подборка кредитов</span>
-      <div className={style.cardCredits__box}>
-        <CardCredit
-          logo={card_credit_first}
+      <h1 className={style.cardCredits__title}>Лучшая подборка кредитов</h1>
+      <div className={style.cardCredits__items}>
+        <CardCreditItem
+          logo={item_1}
           title="Займер"
           loanSum={30000}
           percent={0}
@@ -23,8 +23,8 @@ export default function CardCredits(): JSX.Element {
           periodAbout={30}
           bet={35}
         />
-        <CardCredit
-          logo={card_credit_second}
+        <CardCreditItem
+          logo={item_2}
           title="Moneyman.ru"
           loanSum={30000}
           percent={0}
@@ -32,8 +32,8 @@ export default function CardCredits(): JSX.Element {
           periodAbout={30}
           bet={35}
         />
-        <CardCredit
-          logo={card_credit_third}
+        <CardCreditItem
+          logo={item_3}
           title="Коке.kz"
           loanSum={30000}
           percent={0}

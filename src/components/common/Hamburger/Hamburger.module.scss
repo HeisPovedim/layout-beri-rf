@@ -1,0 +1,42 @@
+.hamburger {
+  border: 0;
+  background-color: unset;
+
+  &__btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+
+    & span {
+      width: 30px;
+      height: 3px;
+      background: black;
+    }
+  }
+
+  &__nav {
+    
+    width: 100%;
+
+    &_open {
+      display: block;
+    }
+
+    &_close {
+      display: none;
+    }
+  }
+
+  @media (min-width: 768px) {
+    display: none;
+  }
+}
+
+.nav {
+  display: flex;
+}

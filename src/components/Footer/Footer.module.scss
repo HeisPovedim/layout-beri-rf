@@ -13,17 +13,17 @@
     & ul {
       display: flex;
       list-style-type: none;
+      gap: 24px;
       padding: 0;
       margin: 0;
+
+      @media (max-width: 768px) {
+        display: none;
+      }
     }
 
     & li {
       display: inline-block;
-      margin-right: 24px;
-
-      &:last-child {
-        margin-right: 0px;
-      }
 
       & a {
         font-size: 16px;
@@ -35,5 +35,9 @@
 
   &__description {
     font-size: 10px;
+  }
+
+  &__description p {
+    margin: 0;
   }
 }
