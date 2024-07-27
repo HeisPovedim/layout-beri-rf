@@ -1,9 +1,10 @@
 .articles__item {
+  width: min(350px, 100%);
+
   &__image {
     position: relative;
     overflow: hidden;
     border-radius: 20px 20px 0px 0px;
-    width: 350px;
     height: 380px;
 
     & img {
@@ -20,20 +21,20 @@
   &__info {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: clamp(7px, calc(1vw + (1000px - 100%) * -0.02), 11px);
     padding: 30px 20px 50px 20px;
     background-color: #f7f7f7;
     border-radius: 0px 0px 20px 20px;
 
     & h2 {
-      font-size: 24px;
       margin: 0;
-      // padding-bottom: 10px;
+      font-size: clamp(14px, 2.4vw, 24px);
+      color: #13245D;
     }
 
     & p {
       margin: 0;
-      font-size: 16px;
+      font-size: clamp(12px, 1.6vw, 16px);
     }
   }
 }

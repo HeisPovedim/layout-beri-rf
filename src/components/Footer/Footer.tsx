@@ -1,8 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
 
-import style from "./Footer.module.scss";
+import NavMenu from "@common/NavMenu/NavMenu";
 
+import style from "./Footer.module.scss";
 import logo from "@assets/logo.svg";
 
 export default function Footer(): JSX.Element {
@@ -10,20 +11,7 @@ export default function Footer(): JSX.Element {
     <div className={style.footer}>
       <div className={style.footer__menu}>
         <Image src={logo} alt="Logo" />
-        <ul>
-          <li>
-            <Link href={"/about"}>О нас</Link>
-          </li>
-          <li>
-            <Link href={"/loan-credit"}>Подбор кредита</Link>
-          </li>
-          <li>
-            <Link href={"/news"}>Новость</Link>
-          </li>
-          <li>
-            <Link href={"/contact"}>Контакты</Link>
-          </li>
-        </ul>
+        <NavMenu />
       </div>
       <div className={style.footer__description}>
         <p>
@@ -40,7 +28,8 @@ export default function Footer(): JSX.Element {
           5610243719 ОГРН 1215600012572. Регистрационный номер записи в
           государственном реестре микрофинансовых организаций 2203353009923.
           Дата внесения 20.09.2022 г.. Адрес ООО МКК "Бламмо Мани": 443080,
-          Самарская область, г Самара, Революционная ул, д. 70, ком. 5<br/><br/>
+          Самарская область, г Самара, Революционная ул, д. 70, ком. 5<br />
+          <br />
         </p>
         <p>
           Финфокс Полное наименование: Общество с ограниченной ответственностью

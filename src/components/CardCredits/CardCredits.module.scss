@@ -8,23 +8,19 @@
 }
 
 .cardCredits {
-  margin-top: 100px;
+  margin-top: clamp(38px, calc(10vw + (1000px - 100%) * -0.02), 100px);
 
   &__title {
     margin: 0;
     justify-content: center;
-    font-size: 36px;
+    font-size: clamp(25px, 3.6vw, 36px);
     color: #13245d;
   }
 
   &__items {
-    margin-top: 50px;
+    margin-top: clamp(20px, calc(5vw + (1000px - 100%) * -0.02), 50px);
     justify-content: center;
     flex-wrap: wrap;
-    gap: 20px;
-  }
-
-  @media (max-width: 1200px) {
-    margin-top: 40px;
+    gap: clamp(15px, calc(2vw + (1000px - 100%) * -0.02), 20px);
   }
 }

@@ -5,14 +5,14 @@
 
 .advantages {
   position: relative;
-  margin-top: 100px;
+  margin-top: clamp(60px, calc(10vw + (1000px - 100%) * -0.02), 100px);
   flex-direction: column;
   align-items: center;
   overflow: hidden;
 
   &__title {
     font-family: "Gilroy-Bold";
-    font-size: 18px;
+    font-size: clamp(16px, 1.8vw, 18px);
     margin: 0px;
     color: #e84b37;
   }
@@ -20,18 +20,18 @@
   &__description {
     font-family: "Gilroy-Bold";
     line-height: 120%;
-    font-size: 36px;
+    font-size: clamp(20px, 3.6vw, 36px);
     margin: 8px 0 0 0;
     text-align: center;
     color: #13245d;
   }
 
   &__items {
-    margin-top: 50px;
+    margin-top: clamp(35px, calc(5vw + (1000px - 100%) * -0.02), 50px);
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 130px;
+    gap: clamp(45px, calc(11.3vw + (1000px - 100%) * -0.02), 113px);
   }
 
   &::after {

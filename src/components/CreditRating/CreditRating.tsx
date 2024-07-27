@@ -24,7 +24,7 @@ export default function CreditRating(): JSX.Element {
         </p>
         <button className="custom-button-orange">Узнать свой рейтинг</button>
       </div>
-      <div className={style.cardCredits__indicator}>
+      <div className={style.creditRating__indicator}>
         <Image src={indicator} alt="Indicator" />
       </div>
     </div>

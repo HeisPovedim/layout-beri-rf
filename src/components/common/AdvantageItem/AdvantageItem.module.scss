@@ -7,7 +7,8 @@
   & p {
     margin: 0;
     font-family: "Gilroy-SemiBold";
-    font-size: 22px;
+    font-size: clamp(18px, 2.2vw, 22px);
+    color: #1E1D4C;
     text-align: center;
     line-height: 118%;
   }

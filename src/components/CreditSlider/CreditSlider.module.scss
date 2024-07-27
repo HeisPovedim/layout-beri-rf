@@ -9,35 +9,33 @@
 .creditSlider {
   flex-direction: row;
   justify-content: space-between;
-  margin-top: 65px;
+  margin-top: clamp(30px, calc(6.5vw + (1000px - 100%) * -0.02), 65px);
+
+  &__info {
+    position: relative;
+    display: flex;
+
+    &__imageMobile {
+      display: none;
+    }
+
+    @media (max-width: 1200px) {
+      justify-content: center;
+
+      &__imageDesktop {
+        display: none;
+      }
+
+      &__imageMobile {
+        display: block;
+      }
+    }
+  }
 
   @media (max-width: 1200px) {
     flex-direction: column-reverse;
     align-items: center;
-    margin-top: 30px;
     gap: 16px;
-  }
-}
-
-.creditSlider__info {
-  position: relative;
-  display: flex;
-  width: 100%;
-
-  &__imageMobile {
-    display: none;
-  }
-
-  @media (max-width: 1200px) {
-    justify-content: center;
-
-    &__imageDesktop {
-      display: none;
-    }
-
-    &__imageMobile {
-      display: block;
-    }
   }
 }
 
@@ -45,17 +43,21 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  padding: 51px 60px;
+  padding: 40px 60px 70px 60px;
   border-radius: 30px;
   background-color: #ffffff;
   box-shadow: 3px 9px 13px 0px #00000021;
+
   &__title {
     margin: 0;
-    font-size: 40px;
+    font-size: clamp(30px, 4vw, 40px);
+    text-align: center;
     color: #13245d;
   }
   &__description {
     margin: 0;
+    font-size: clamp(18px, 2vw, 20px);
+    text-align: center;
   }
   &__description span {
     color: #e84b37;
@@ -75,16 +77,12 @@
   &__button {
     justify-content: center;
     align-items: center;
-    font-size: 26px;
+    font-size: 25px;
     color: #ffffff;
-    width: 364px;
+    width: min(364px, 100%);
     height: 72px;
     background-color: #e84b37;
     border-radius: 14.63px;
     margin-top: 59px;
-  }
-
-  @media (max-width: 1200px) {
-    width: min(350px, 100%);
   }
 }
