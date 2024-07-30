@@ -1,12 +1,12 @@
-.creditSlider,
-.creditSlider__getMoney,
-.creditSlider__getMoney__slider,
-.creditSlider__getMoney__price,
-.creditSlider__getMoney__button {
+.getMoney,
+.getMoney__slider,
+.getMoney__slider__slider,
+.getMoney__slider__price,
+.getMoney__slider__button {
   display: flex;
 }
 
-.creditSlider {
+.getMoney {
   flex-direction: row;
   justify-content: space-between;
   margin-top: clamp(30px, calc(6.5vw + (1000px - 100%) * -0.02), 65px);
@@ -39,7 +39,7 @@
   }
 }
 
-.creditSlider__getMoney {
+.getMoney__slider {
   align-items: center;
   justify-content: center;
   flex-direction: column;

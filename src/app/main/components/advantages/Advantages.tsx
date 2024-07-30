@@ -1,4 +1,4 @@
-import AdvantageItem from "../common/AdvantageItem/AdvantageItem";
+import AdvantageItem from "./component/AdvantageItem/AdvantageItem";
 
 import style from "./Advantages.module.scss";
 

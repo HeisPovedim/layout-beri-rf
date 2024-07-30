@@ -4,13 +4,12 @@ import "./globals.scss";
 
 const inter = Inter({ subsets: ["latin"] });
 
-// #Описание сайта
+// Description site
 export const metadata: Metadata = {
   title: "Бери.рф",
   description: "Микрозаймы вместе с Бери.рф",
 };
 
-// ^Основная страница
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {

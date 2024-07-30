@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import style from "./CardCreditItem.module.scss";
+import style from "./setLoansItems.module.scss";
 
 type TCardCreditItem = {
   logo: HTMLImageElement;
@@ -12,7 +12,7 @@ type TCardCreditItem = {
   bet: number;
 };
 
-export default function CardCreditItem(props: TCardCreditItem): JSX.Element {
+export default function SetLoansItems(props: TCardCreditItem): JSX.Element {
   return (
     <div className={style.cardCredit__item}>
       <div className={style.cardCredit__item__title}>

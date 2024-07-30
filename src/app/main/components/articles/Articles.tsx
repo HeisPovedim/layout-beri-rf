@@ -1,4 +1,4 @@
-import ArticleItem from "../common/ArticleItem/ArticleItem";
+import ArticleItem from "./component/ArticleItem/ArticleItem";
 
 import style from "./Articles.module.scss";
 

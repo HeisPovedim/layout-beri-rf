@@ -1,13 +1,13 @@
-.cardCredits__title,
-.cardCredits__items {
+.setLoans__title,
+.setLoans__items {
   display: flex;
 }
 
-.cardCredits__title {
+.setLoans__title {
   font-family: "Gilroy-SemiBold";
 }
 
-.cardCredits {
+.setLoans {
   margin-top: clamp(38px, calc(10vw + (1000px - 100%) * -0.02), 100px);
 
   &__title {

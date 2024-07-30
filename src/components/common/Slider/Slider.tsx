@@ -1,13 +1,8 @@
-// # CLIENT COMPONENT
 "use client";
-
-// # REACT
 import React, { useEffect, useRef, useState } from "react";
 
-// # LIBRARY
 import noUiSlider, { API } from "nouislider";
 
-// # STYLE
 import style from "./Slider.module.scss";
 import "@assets/custom-slider.scss";
 
@@ -15,8 +10,17 @@ interface HTMLDivElementWithSlider extends HTMLDivElement {
   noUiSlider?: API;
 }
 
-// ^ COMPONENT VISION SLIDER
-const CSlider: React.FC = () => {
+type TCSlider = {
+  min: number;
+  max: number;
+  step: number;
+  start: number;
+  descriptors: string;
+  tooltip: boolean;
+  onChange: (values: number[]) => void;
+};
+
+export default function CSlider(props: TCSlider) {
   const [value, setValue] = useState<number | number[]>();
   const sliderRef = useRef<HTMLDivElementWithSlider>(null);
 
@@ -28,27 +32,37 @@ const CSlider: React.FC = () => {
         slider.noUiSlider.destroy();
       }
 
-      noUiSlider.create(slider, {
-        start: [1000],
+      const sliderObject = {
+        start: [props.start],
         range: {
-          min: 1000,
-          max: 100000,
+          min: props.min,
+          max: props.max,
         },
-        step: 1000,
-        tooltips: {
-          to: function (value) {
-            return Math.floor(value).toLocaleString('ru-RU') + " ₽";
-          },
-        },
+        step: props.step,
         connect: [true, false],
-      });
+      };
 
-      slider.noUiSlider?.on(
-        "update",
-        (values: (number | string)[], handle: number) => {
-          setValue(values.map((value) => parseFloat(value as string)));
-        }
-      );
+      if (props.tooltip) {
+        noUiSlider.create(slider, {
+          ...sliderObject,
+          tooltips: {
+            to: function (value) {
+              return (
+                Math.floor(value).toLocaleString("ru-RU") +
+                ` ${props.descriptors}`
+              );
+            },
+          },
+        });
+      } else {
+        noUiSlider.create(slider, { ...sliderObject });
+      }
+
+      slider.noUiSlider?.on("update", (values: (number | string)[]) => {
+        const value = values.map((value) => parseFloat(value as string));
+        setValue(value);
+        props.onChange(value);
+      });
 
       return () => {
         if (slider.noUiSlider) {
@@ -61,6 +75,4 @@ const CSlider: React.FC = () => {
   }, []);
 
   return <div className={style.slider} ref={sliderRef}></div>;
-};
-
-export default CSlider;
+}
