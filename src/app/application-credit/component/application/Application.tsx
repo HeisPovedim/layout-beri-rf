@@ -18,7 +18,7 @@ export default function Application(): JSX.Element {
             Какая сумма вам нужна?
           </h2>
           <div className={style.getLoan__wrap__amount__sliders}>
-            <div className={style.getLoan__wrap__amount__sliderLeft}>
+            <div className={style.getLoan__wrap__amount__sliderSum}>
               <Slider
                 min={1000}
                 max={100000}
@@ -28,9 +28,13 @@ export default function Application(): JSX.Element {
                 tooltip={false}
                 onChange={(values: number[]) => setSumSliderValues(values[0])}
               />
-              <div>Сумма: {sumSliderValues}</div>
+              <div className={style.getLoan__wrap__amount__sliderSum__info}>
+                <p>1000</p>
+                <p>10000</p>
+              </div>
+              <p>Сумма: {sumSliderValues}</p>
             </div>
-            <div className={style.getLoan__wrap__amount__sliderRight}>
+            <div className={style.getLoan__wrap__amount__sliderDays}>
               <Slider
                 min={5}
                 max={180}
@@ -40,7 +44,11 @@ export default function Application(): JSX.Element {
                 tooltip={false}
                 onChange={(values: number[]) => setDaysSliderValues(values[0])}
               />
-              <div>Дней: {daysSliderValues}</div>
+              <div className={style.getLoan__wrap__amount__sliderDays__info}>
+                <p>5 дней</p>
+                <p>180 дней</p>
+              </div>
+              <p>Дней: {daysSliderValues}</p>
             </div>
           </div>
         </div>

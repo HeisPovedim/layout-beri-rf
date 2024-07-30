@@ -45,9 +45,25 @@
         width: 100%;
       }
 
-      &__sliderLeft,
-      &__sliderRight {
+      &__sliderSum,
+      &__sliderDays {
         width: 100%;
+      }
+
+      &__sliderSum {
+
+        &__info {
+          display: flex;
+          justify-content: space-between;
+        }
+      }
+
+      &__sliderDays {
+
+        &__info {
+          display: flex;
+          justify-content: space-between;
+        }
       }
     }
   }
