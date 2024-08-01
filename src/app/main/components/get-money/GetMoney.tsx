@@ -2,7 +2,11 @@
 import Image from "next/image";
 import Slider from "@/components/common/Slider/Slider";
 
+// Styles
 import style from "./GetMoney.module.scss";
+import "./styles/slider.scss";
+
+// Images
 import imageDesktop from "./img/credit-slider-human.svg";
 import imageMobile from "./img/credit-slider-human-mobile.svg";
 
@@ -22,9 +26,7 @@ export default function GetMoney(): JSX.Element {
         />
       </div>
       <div className={style.getMoney__slider}>
-        <h1 className={style.getMoney__slider__title}>
-          Кредит без залога
-        </h1>
+        <h1 className={style.getMoney__slider__title}>Кредит без залога</h1>
         <p className={style.getMoney__slider__description}>
           Деньги у вас через <span>10:32</span>
         </p>

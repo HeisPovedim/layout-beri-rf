@@ -1,0 +1,17 @@
+.inputWrap {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  & p {
+    position: absolute;
+    bottom: -15px;
+    left: 0;
+
+    font-size: 10px;
+    font-weight: 700;
+    color: red;
+  }
+}

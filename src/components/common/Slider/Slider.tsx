@@ -4,7 +4,6 @@ import React, { useEffect, useRef, useState } from "react";
 import noUiSlider, { API } from "nouislider";
 
 import style from "./Slider.module.scss";
-import "@assets/custom-slider.scss";
 
 interface HTMLDivElementWithSlider extends HTMLDivElement {
   noUiSlider?: API;

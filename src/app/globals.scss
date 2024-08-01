@@ -281,7 +281,8 @@
   background-position: top right;
   background-repeat: no-repeat;
 
-  --main-title-color: #13245D;
+  --main-title-color: #13245d;
+  --font-medium-weight: "Gilroy-Medium";
 }
 
 .custom-button-blue {
@@ -311,4 +312,10 @@
   &:active {
     background-color: #d53621;
   }
+}
+
+.custom-input {
+  font-family: "Gilroy-Regular";
+  border-radius: 15px;
+  border: 1px solid #00000080;
 }
