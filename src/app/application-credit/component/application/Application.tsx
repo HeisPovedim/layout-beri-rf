@@ -2,7 +2,7 @@
 import { useState } from "react";
 
 // Components
-import { FormInput, FormInputNumber } from "../FormInput/FormInput";
+import { FormInput, FormInputNumberDate } from "../FormInput/FormInput";
 import Slider from "@common/Slider/Slider";
 
 // Helpers
@@ -10,7 +10,7 @@ import { RegForInitials } from "@helpers/reg-set";
 import { RepWordUp } from "@helpers/rep-word-up";
 
 // Interface
-import { IFio, ISliderValue } from "../interfase";
+import { IFio, ISliderValue } from "../interface";
 
 // Styles
 import style from "./Application.module.scss";
@@ -22,11 +22,11 @@ export default function Application(): JSX.Element {
     days: 5,
   });
 
-  const [fio, setFio] = useState<IFio>({
+  const [generalInfo, setGeneralInfo] = useState<IFio>({
     firstName: "",
     lastName: "",
     middleName: "",
-    phone: 0,
+    numberDate: null,
   });
 
   const [email, setEmail] = useState<string>();
@@ -89,7 +89,7 @@ export default function Application(): JSX.Element {
             onSubmit={(data) => console.log(data)}
           >
             <FormInput
-              value={fio.firstName}
+              value={generalInfo.firstName}
               type="firstName"
               placeholder="Имя"
               minLength={2}
@@ -97,14 +97,14 @@ export default function Application(): JSX.Element {
               pattern={RegForInitials}
               patternValid={/^[^A-Za-z]+$/gi}
               onChange={(event) =>
-                setFio({
-                  ...fio,
+                setGeneralInfo({
+                  ...generalInfo,
                   firstName: RepWordUp(event.replace(RegForInitials, "")),
                 })
               }
             />
             <FormInput
-              value={fio.middleName}
+              value={generalInfo.middleName}
               type="middleName"
               placeholder="Отчество"
               minLength={2}
@@ -112,14 +112,14 @@ export default function Application(): JSX.Element {
               pattern={RegForInitials}
               patternValid={/^[^A-Za-z]+$/gi}
               onChange={(event) =>
-                setFio({
-                  ...fio,
+                setGeneralInfo({
+                  ...generalInfo,
                   middleName: RepWordUp(event.replace(RegForInitials, "")),
                 })
               }
             />
             <FormInput
-              value={fio.lastName}
+              value={generalInfo.lastName}
               type="lastName"
               placeholder="Фамилия"
               minLength={2}
@@ -127,15 +127,19 @@ export default function Application(): JSX.Element {
               pattern={RegForInitials}
               patternValid={/^[^A-Za-z]+$/gi}
               onChange={(event) =>
-                setFio({
-                  ...fio,
+                setGeneralInfo({
+                  ...generalInfo,
                   lastName: RepWordUp(event.replace(RegForInitials, "")),
                 })
               }
             />
-            <FormInputNumber
-              format="##.##.####"
-              onChange={(event) => setFio({ ...fio, phone: event})}
+            <FormInputNumberDate
+              value={generalInfo.numberDate}
+              type="numberDate"
+              format="##/##/####"
+              onChange={(event) =>
+                setGeneralInfo({ ...generalInfo, numberDate: event })
+              }
             />
             {/* <input className={"custom-input"} placeholder="Дата рождения" /> */}
             {/* <input className={"custom-input"} placeholder="Мобильный телефон" />

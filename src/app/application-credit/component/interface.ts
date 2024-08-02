@@ -2,7 +2,7 @@ export interface IFio {
   firstName: string,
   lastName: string,
   middleName: string,
-  phone: any,
+  numberDate: any,
 }
 
 export interface ISliderValue {
@@ -21,7 +21,9 @@ export interface IFormInput {
   onChange: (event: string) => void;
 }
 
-export interface IFormInputNumber {
+export interface IFormInputNumberDate {
+  value?: string;
+  type: string;
   format: string;
   onChange: (event: string) => void;
 }
