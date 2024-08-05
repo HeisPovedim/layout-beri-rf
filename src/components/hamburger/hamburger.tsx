@@ -1,8 +1,8 @@
 'use client';
 import React, { useState } from "react";
 
-import style from "./Hamburger.module.scss";
-import "./Hamburger.scss";
+import style from "./hamburger.module.scss";
+import "./hamburger.scss";
 
 interface IHamburger {
   onStateChange: (newState: boolean) => void;

@@ -1,10 +1,10 @@
 "use client";
 import Image from "next/image";
 import { useState } from "react";
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from "framer-motion";
 
-import NavMenu from "@common/NavMenu/NavMenu";
-import Hamburger from "@common/Hamburger/Hamburger";
+import NavMenu from "@components/nav-menu/nav-menu";
+import Hamburger from "@components/hamburger/hamburger";
 import logo from "@assets/logo.svg";
 
 import style from "./Header.module.scss";

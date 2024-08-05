@@ -1,7 +1,7 @@
 import style from "./page.module.scss";
 
-import Header from "@components/Header/Header";
-import Application from "./component/application/Application"
+import Header from "@/shared/ui/Header/Header";
+import Application from "./container/application/Application";
 
 export default function GetLoan(): JSX.Element {
   return (

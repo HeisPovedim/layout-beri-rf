@@ -73,18 +73,25 @@
       color: var(--main-title-color);
     }
 
-    &__inputs {
+    &__form {
       margin-top: 25px;
 
       display: flex;
-      flex-direction: row;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 30px;
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: 60px;
 
       & input {
         width: min(326px, 100%);
         padding: 25px;
+      }
+
+      &__inputs {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 30px;
       }
     }
   }

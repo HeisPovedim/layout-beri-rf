@@ -1,7 +1,6 @@
-import Link from "next/link";
 import Image from "next/image";
 
-import NavMenu from "@common/NavMenu/NavMenu";
+import NavMenu from "@components/nav-menu/nav-menu";
 
 import style from "./Footer.module.scss";
 import logo from "@assets/logo.svg";

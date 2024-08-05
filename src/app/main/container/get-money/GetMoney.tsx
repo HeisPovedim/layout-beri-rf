@@ -1,16 +1,19 @@
 "use client";
-import Image from "next/image";
-import Slider from "@/components/common/Slider/Slider";
+import { useState } from "react";
+import Link from "next/link";
 
-// Styles
+import Image from "next/image";
+import Slider from "@/shared/slider/slider";
+
 import style from "./GetMoney.module.scss";
 import "./styles/slider.scss";
 
-// Images
 import imageDesktop from "./img/credit-slider-human.svg";
 import imageMobile from "./img/credit-slider-human-mobile.svg";
 
 export default function GetMoney(): JSX.Element {
+  const [sliderValue, setSliderValue] = useState<number>(1000);
+
   return (
     <div className={style.getMoney}>
       <div className={style.getMoney__info}>
@@ -38,18 +41,23 @@ export default function GetMoney(): JSX.Element {
             start={20000}
             descriptors="₽"
             tooltip={true}
-            onChange={(value: number[]) => console.log(value)}
+            // onChange={(value: number[]) => setSliderValue(value[0])}
           />
           <div className={style.getMoney__slider__price}>
             <span>1000₽</span>
             <span>100000₽</span>
           </div>
         </div>
-        <button
-          className={`${style.getMoney__slider__button} custom-button-orange`}
+        <Link
+          href={`/application-credit?amount=${sliderValue}`}
+          style={{ width: "100%" }}
         >
-          Взять деньги
-        </button>
+          <button
+            className={`${style.getMoney__slider__button} custom-button-orange`}
+          >
+            Взять деньги
+          </button>
+        </Link>
       </div>
     </div>
   );

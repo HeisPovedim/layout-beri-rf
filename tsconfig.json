@@ -22,9 +22,11 @@
       "@assets/*": ["./assets/*"],
       "@common/*": ["./src/components/common/*"],
       "@components/*": ["./src/components/*"],
-      "@helpers/*": ["./src/helpers/*"]
+      "@helpers/*": ["./src/helpers/*"],
+      "@utilities/*": ["./src/utilities/*"],
+      "@shared/*": ["./src/shared/*"],
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/components/common/Slider/Slider copy.copy", "src/components/common/Slider/Slider copy.cope"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/shared/slider/Slider copy.copy", "src/shared/slider/Slider copy.cope"],
   "exclude": ["node_modules"],
 }
