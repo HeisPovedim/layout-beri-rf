@@ -39,9 +39,14 @@ export default function GetMoney(): JSX.Element {
             max={100000}
             step={1000}
             start={20000}
-            descriptors="₽"
+            symbolTooltip="₽"
             tooltip={true}
-            // onChange={(value: number[]) => setSliderValue(value[0])}
+            styles={{
+              colorSlider: "#E84B37",
+              colorThumb: "#E84B37",
+              colorThumbOpacity: "#E84B372E",
+            }}
+            onChange={(val: number) => setSliderValue(val)}
           />
           <div className={style.getMoney__slider__price}>
             <span>1000₽</span>

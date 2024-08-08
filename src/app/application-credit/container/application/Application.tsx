@@ -23,7 +23,7 @@ import { useSearchParams } from "next/navigation";
 
 export default function Application(): JSX.Element {
   const [sliderValues, setSliderValues] = useState<ISliderValue>({
-    amount: parseInt(useSearchParams().get("amount") || "0", 10),
+    amount: parseInt(useSearchParams().get("amount") || "1000", 10),
     days: 5,
   });
 
@@ -52,10 +52,15 @@ export default function Application(): JSX.Element {
                 max={100000}
                 step={1000}
                 start={sliderValues.amount}
-                descriptors="₽"
+                symbolTooltip=""
                 tooltip={false}
-                onChange={(values: number[]) =>
-                  setSliderValues({ ...sliderValues, amount: values[0] })
+                styles={{
+                  colorSlider: "#6588ff",
+                  colorThumb: "#6588ff",
+                  colorThumbOpacity: "#6588FF2E",
+                }}
+                onChange={(val: number) =>
+                  setSliderValues({ ...sliderValues, amount: val })
                 }
               />
               <div>
@@ -69,11 +74,16 @@ export default function Application(): JSX.Element {
                 min={5}
                 max={180}
                 step={1}
-                start={5}
-                descriptors="дней"
+                start={sliderValues.days}
+                symbolTooltip=""
                 tooltip={false}
-                onChange={(values: number[]) =>
-                  setSliderValues({ ...sliderValues, days: values[0] })
+                styles={{
+                  colorSlider: "#6588ff",
+                  colorThumb: "#6588ff",
+                  colorThumbOpacity: "#6588FF2E",
+                }}
+                onChange={(val: number) =>
+                  setSliderValues({ ...sliderValues, days: val })
                 }
               />
               <div>
