@@ -24,7 +24,7 @@ export default function CHeader(): JSX.Element {
         <nav className={style.header__navDesktop}>
           <NavMenu />
         </nav>
-        <button className={`${style.header__logIn} custom-button-blue`}>
+        <button className={`${style.header__logIn} custom-btn-blue`}>
           Войти
         </button>
       </div>

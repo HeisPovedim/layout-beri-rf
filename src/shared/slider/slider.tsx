@@ -4,7 +4,7 @@ import { updateSliderFill, updateTooltipPosition } from "./script";
 
 import style from "./slider.module.scss";
 
-type TCSlider = {
+interface TCSlider {
   min: number;
   max: number;
   step: number;

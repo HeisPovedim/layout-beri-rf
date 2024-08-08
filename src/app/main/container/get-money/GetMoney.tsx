@@ -6,7 +6,6 @@ import Image from "next/image";
 import Slider from "@/shared/slider/slider";
 
 import style from "./GetMoney.module.scss";
-import "./styles/slider.scss";
 
 import imageDesktop from "./img/credit-slider-human.svg";
 import imageMobile from "./img/credit-slider-human-mobile.svg";

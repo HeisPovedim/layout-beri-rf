@@ -1,4 +1,4 @@
-.application {
+.app {
   margin-top: clamp(30px, calc(4.6vw + (1000px - 100%) * -0.02), 46px);
   display: flex;
   flex-direction: column;
@@ -8,21 +8,23 @@
     color: var(--main-title-color);
   }
 
-  margin-top: clamp(30px, calc(4.6vw + (1000px - 100%) * -0.02), 46px);
-  padding: 45px 60px 60px 40px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  &__box {
+    margin-top: clamp(30px, calc(4.6vw + (1000px - 100%) * -0.02), 46px);
+    padding: 45px 60px 60px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 
-  background-color: #f8faff;
-  border-radius: 40px;
+    background-color: #f8faff;
+    border-radius: 40px;
+  }
 
   &__contact {
     font-size: clamp(25px, 3vw, 30px);
     color: var(--main-title-color);
   }
 
-  &__amount {
+  &__sliders {
     margin-top: clamp(40px, calc(5vw + (1000px - 100%) * -0.02), 50px);
     display: flex;
     flex-direction: column;
@@ -33,7 +35,7 @@
       color: var(--main-title-color);
     }
 
-    &__sliders {
+    &__box {
       margin-top: 20px;
       display: flex;
       flex-direction: row;
@@ -65,7 +67,7 @@
     }
   }
 
-  &__generalInfo {
+  &__data {
     margin-top: clamp(40px, calc(5vw + (1000px - 100%) * -0.02), 50px);
 
     &__title {
@@ -81,17 +83,52 @@
       justify-content: flex-start;
       gap: 60px;
 
-      & input {
-        width: min(326px, 100%);
-        padding: 25px;
-      }
-
       &__inputs {
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: center;
         flex-wrap: wrap;
         gap: 30px;
+
+        & > div {
+          width: min(326px, 100%);
+        }
+
+        & input {
+          padding: 25px;
+        }
+      }
+
+      &__buttons {
+        display: flex;
+        align-items: center;
+
+        gap: 70px;
+      }
+
+      &__btn {
+        padding: 20px 55px;
+        border-radius: 14px;
+
+        font-size: 26px;
+        font-weight: 700;
+      }
+
+      &__checkbox {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+
+        gap: 15px;
+
+        & > p {
+          font-size: 16px;
+          color: var(--main-title-color);
+
+          & > span {
+            text-decoration: underline;
+          }
+        }
       }
     }
   }

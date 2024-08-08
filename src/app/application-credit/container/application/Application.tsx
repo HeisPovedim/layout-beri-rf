@@ -1,8 +1,8 @@
 "use client";
-import { useEffect, useState } from "react";
-import { useRouter } from "next/router";
+import { useState } from "react";
+import { useSearchParams } from "next/navigation";
 
-// Components
+// Inputs
 import FormInputText from "@components/form-inputs/form-input-text";
 import FormInputDate from "@components/form-inputs/form-input-date";
 import FormInputPhone from "@components/form-inputs/form-input-phone";
@@ -18,10 +18,8 @@ import { ISliderValue, IGeneralInfo } from "./IApplication";
 
 // Styles
 import style from "./Application.module.scss";
-import "./styles/slider.scss";
-import { useSearchParams } from "next/navigation";
 
-export default function Application(): JSX.Element {
+export default function app(): JSX.Element {
   const [sliderValues, setSliderValues] = useState<ISliderValue>({
     amount: parseInt(useSearchParams().get("amount") || "1000", 10),
     days: 5,
@@ -37,16 +35,14 @@ export default function Application(): JSX.Element {
   });
 
   return (
-    <div className={style.application}>
-      <h1 className={style.application__title}>Заявка на получение кредита</h1>
-      <div className={style.application__wrap}>
-        <h2 className={style.application__contact}>Контактная информация</h2>
-        <div className={style.application__amount}>
-          <h2 className={style.application__amount__title}>
-            Какая сумма вам нужна?
-          </h2>
-          <div className={style.application__amount__sliders}>
-            <div className={style.application__amount__sliderSum}>
+    <div className={style.app}>
+      <h1 className={style.app__title}>Заявка на получение кредита</h1>
+      <div className={style.app__box}>
+        <h2 className={style.app__contact}>Контактная информация</h2>
+        <div className={style.app__sliders}>
+          <h2 className={style.app__sliders__title}>Какая сумма вам нужна?</h2>
+          <div className={style.app__sliders__box}>
+            <div className={style.app__sliders__sliderSum}>
               <Slider
                 min={1000}
                 max={100000}
@@ -69,7 +65,7 @@ export default function Application(): JSX.Element {
               </div>
               <p>Сумма: {sliderValues.amount.toLocaleString("ru-RU")} ₽</p>
             </div>
-            <div className={style.application__amount__sliderDays}>
+            <div className={style.app__sliders__sliderDays}>
               <Slider
                 min={5}
                 max={180}
@@ -94,15 +90,13 @@ export default function Application(): JSX.Element {
             </div>
           </div>
         </div>
-        <div className={style.application__generalInfo}>
-          <h2 className={style.application__generalInfo__title}>
-            Общая информация
-          </h2>
+        <div className={style.app__data}>
+          <h2 className={style.app__data__title}>Общая информация</h2>
           <form
-            className={style.application__generalInfo__form}
+            className={style.app__data__form}
             onSubmit={(data) => console.log(data)}
           >
-            <div className={style.application__generalInfo__form__inputs}>
+            <div className={style.app__data__form__inputs}>
               <FormInputText
                 value={generalInfo.firstName}
                 type="firstName"
@@ -175,9 +169,26 @@ export default function Application(): JSX.Element {
                 }
               />
             </div>
-            <div className={style.application__generalInfo__form__button}>
-              <button>Продолжить</button>
-              <input type="checkbox" />
+            <div className={style.app__data__form__buttons}>
+              <button
+                className={`${style.app__data__form__btn} custom-btn-orange`}
+              >
+                Продолжить
+              </button>
+              <div className={style.app__data__form__checkbox}>
+                <input
+                  className="custom-checkbox"
+                  type="checkbox"
+                  id="check-label"
+                />
+                <label htmlFor="check-label" />
+                <p>
+                  Я согласен с{" "}
+                  <span>Политикой обработки персональных данных</span>, а также
+                  предоставляю{" "}
+                  <span>Согласие на обработку персональных данных</span>.
+                </p>
+              </div>
             </div>
           </form>
         </div>

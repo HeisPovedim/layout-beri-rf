@@ -18,9 +18,9 @@ export default function FormInputDate(props: IFormInputDate): JSX.Element {
   const {
     control,
     formState: { errors },
-  } = useForm({ mode: "all", shouldUnregister: true }); // settings useFrom
+  } = useForm({ mode: "all", shouldUnregister: true });
 
-  const errorMessage = getErrorMessage(errors, props.type); // handler errors
+  const errorMessage = getErrorMessage(errors, props.type);
 
   return (
     <div className={style.inputWrap}>
