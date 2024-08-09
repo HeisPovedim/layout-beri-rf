@@ -1,23 +1,23 @@
-.setLoans__title,
-.setLoans__items {
+.setLoans_title,
+.setLoans_items {
   display: flex;
 }
 
-.setLoans__title {
+.setLoans_title {
   font-family: "Gilroy-SemiBold";
 }
 
 .setLoans {
   margin-top: clamp(38px, calc(10vw + (1000px - 100%) * -0.02), 100px);
 
-  &__title {
+  &_title {
     margin: 0;
     justify-content: center;
     font-size: clamp(25px, 3.6vw, 36px);
     color: #13245d;
   }
 
-  &__items {
+  &_items {
     margin-top: clamp(20px, calc(5vw + (1000px - 100%) * -0.02), 50px);
     justify-content: center;
     flex-wrap: wrap;

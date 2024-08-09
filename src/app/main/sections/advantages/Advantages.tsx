@@ -1,4 +1,4 @@
-import AdvantageItem from "./component/AdvantageItem/AdvantageItem";
+import AdvantageItem from "./advantage-item/advantage-item";
 
 import style from "./Advantages.module.scss";
 
@@ -10,11 +10,11 @@ import item_4 from "./img/advantages-item-4.svg";
 export default function Advantages(): JSX.Element {
   return (
     <div className={style.advantages}>
-      <h4 className={style.advantages__title}>Преимущество для вас</h4>
-      <h2 className={style.advantages__description}>
+      <h4 className={style.advantages_title}>Преимущество для вас</h4>
+      <h2 className={style.advantages_description}>
         Низкие проценты, онлайн оформление<br/>потребительского кредита
       </h2>
-      <div className={style.advantages__items}>
+      <div className={style.advantages_items}>
         <AdvantageItem
           img={item_1}
           description={["Без залога и", <br key="br" />, " на любые цели"]}

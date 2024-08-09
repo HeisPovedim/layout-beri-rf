@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import style from "./setLoansItems.module.scss";
+import style from "./set-loans-items.module.scss";
 
 type TCardCreditItem = {
   logo: HTMLImageElement;

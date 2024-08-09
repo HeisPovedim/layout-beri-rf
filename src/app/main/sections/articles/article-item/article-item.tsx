@@ -1,6 +1,6 @@
 import Image, { StaticImageData } from "next/image";
 
-import style from "./ArticleItem.module.scss";
+import style from "./article-item.module.scss";
 
 type TArticleItem = {
   img: StaticImageData;

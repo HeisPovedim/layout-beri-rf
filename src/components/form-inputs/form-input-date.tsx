@@ -1,4 +1,10 @@
-import { useForm, Controller } from "react-hook-form";
+import {
+  useForm,
+  Controller,
+  Control,
+  FieldValues,
+  FieldErrors,
+} from "react-hook-form";
 import { PatternFormat, NumberFormatValues } from "react-number-format";
 
 import { validateDate } from "@helpers/validateDate";
@@ -7,26 +13,24 @@ import { getErrorMessage } from "@utilities/getErrorMessage";
 import style from "./form-inputs.module.scss";
 
 export interface IFormInputDate {
+  control: Control<FieldValues, any>;
   value: number | null;
   type: string;
   placeholder: string;
   format: string;
   onChange: (event: number) => void;
+  error: FieldErrors;
 }
 
 export default function FormInputDate(props: IFormInputDate): JSX.Element {
-  const {
-    control,
-    formState: { errors },
-  } = useForm({ mode: "all", shouldUnregister: true });
-
-  const errorMessage = getErrorMessage(errors, props.type);
+  const {} = useForm({ mode: "all", shouldUnregister: true });
+  const errorMessage = getErrorMessage(props.error, props.type);
 
   return (
-    <div className={style.inputWrap}>
+    <div className={style.formInput}>
       <Controller
         name={props.type}
-        control={control}
+        control={props.control}
         defaultValue={props.value || null}
         rules={{
           required: "*Необходимо заполнить поле",
@@ -52,7 +56,9 @@ export default function FormInputDate(props: IFormInputDate): JSX.Element {
           />
         )}
       />
-      <p>{errorMessage && <span>{errorMessage}</span>}</p>
+      <p className={`${style.errorMessage} form-error-message`}>
+        {errorMessage && <span>{errorMessage}</span>}
+      </p>
     </div>
   );
 }

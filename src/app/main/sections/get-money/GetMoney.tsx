@@ -15,24 +15,24 @@ export default function GetMoney(): JSX.Element {
 
   return (
     <div className={style.getMoney}>
-      <div className={style.getMoney__info}>
+      <section className={style.getMoney__info}>
         <Image
-          className={style.getMoney__info__imageDesktop}
+          className={style.getMoney__info_imageDesktop}
           src={imageDesktop}
           alt=""
         />
         <Image
-          className={style.getMoney__info__imageMobile}
+          className={style.getMoney__info_imageMobile}
           src={imageMobile}
           alt=""
         />
-      </div>
-      <div className={style.getMoney__slider}>
-        <h1 className={style.getMoney__slider__title}>Кредит без залога</h1>
-        <p className={style.getMoney__slider__description}>
+      </section>
+      <section className={style.getMoney__slider}>
+        <h1 className={style.getMoney__slider_title}>Кредит без залога</h1>
+        <p className={style.getMoney__slider_description}>
           Деньги у вас через <span>10:32</span>
         </p>
-        <div className={style.getMoney__slider__slider}>
+        <div className={style.getMoney__slider_choice}>
           <Slider
             min={1000}
             max={100000}
@@ -47,9 +47,9 @@ export default function GetMoney(): JSX.Element {
             }}
             onChange={(val: number) => setSliderValue(val)}
           />
-          <div className={style.getMoney__slider__price}>
-            <span>1000₽</span>
-            <span>100000₽</span>
+          <div>
+            <span>1000 ₽</span>
+            <span>100 000 ₽</span>
           </div>
         </div>
         <Link
@@ -57,12 +57,12 @@ export default function GetMoney(): JSX.Element {
           style={{ width: "100%" }}
         >
           <button
-            className={`${style.getMoney__slider__button} custom-button-orange`}
+            className={`${style.getMoney__slider_button} custom-btn-orange`}
           >
             Взять деньги
           </button>
         </Link>
-      </div>
+      </section>
     </div>
   );
 }

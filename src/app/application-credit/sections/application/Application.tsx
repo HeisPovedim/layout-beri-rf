@@ -1,48 +1,57 @@
 "use client";
 import { useState } from "react";
+import { FieldValue, SubmitHandler, useForm } from "react-hook-form";
 import { useSearchParams } from "next/navigation";
 
-// Inputs
 import FormInputText from "@components/form-inputs/form-input-text";
 import FormInputDate from "@components/form-inputs/form-input-date";
-import FormInputPhone from "@components/form-inputs/form-input-phone";
+import FormInputNumberFormat from "@components/form-inputs/form-input-number-format";
 import FormInputEmail from "@components/form-inputs/form-input-email";
 import Slider from "@shared/slider/slider";
 
-// Helpers
 import { RegForInitials } from "@helpers/reg-set";
 import { RepWordUp } from "@helpers/rep-word-up";
 
-// Interface
-import { ISliderValue, IGeneralInfo } from "./IApplication";
+import { ISliderValue, IDataForm } from "./IApplication";
 
-// Styles
 import style from "./Application.module.scss";
 
-export default function app(): JSX.Element {
+export default function App(): JSX.Element {
+  const {
+    control,
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({ mode: "all" });
+
   const [sliderValues, setSliderValues] = useState<ISliderValue>({
     amount: parseInt(useSearchParams().get("amount") || "1000", 10),
     days: 5,
   });
 
-  const [generalInfo, setGeneralInfo] = useState<IGeneralInfo>({
+  const [dataForm, setDataForm] = useState<IDataForm>({
     firstName: "",
     lastName: "",
     middleName: "",
     numberDate: null,
     numberPhone: null,
     email: "",
+    checkbox: false,
   });
+
+  const submit: SubmitHandler<FieldValue<any>> = (data) => {
+    console.log(data);
+  };
 
   return (
     <div className={style.app}>
       <h1 className={style.app__title}>Заявка на получение кредита</h1>
-      <div className={style.app__box}>
+      <div className={style.app__container}>
         <h2 className={style.app__contact}>Контактная информация</h2>
-        <div className={style.app__sliders}>
-          <h2 className={style.app__sliders__title}>Какая сумма вам нужна?</h2>
-          <div className={style.app__sliders__box}>
-            <div className={style.app__sliders__sliderSum}>
+        <section className={style.app__sliders}>
+          <h2 className={style.app__sliders_title}>Какая сумма вам нужна?</h2>
+          <div className={style.app__sliders_grid}>
+            <div className={style.app__sliders_sum}>
               <Slider
                 min={1000}
                 max={100000}
@@ -65,7 +74,7 @@ export default function app(): JSX.Element {
               </div>
               <p>Сумма: {sliderValues.amount.toLocaleString("ru-RU")} ₽</p>
             </div>
-            <div className={style.app__sliders__sliderDays}>
+            <div className={style.app__sliders_day}>
               <Slider
                 min={5}
                 max={180}
@@ -89,16 +98,17 @@ export default function app(): JSX.Element {
               <p>Срок: {sliderValues.days} дней</p>
             </div>
           </div>
-        </div>
-        <div className={style.app__data}>
-          <h2 className={style.app__data__title}>Общая информация</h2>
+        </section>
+        <section className={style.app__data}>
+          <h2 className={style.app__data_title}>Общая информация</h2>
           <form
-            className={style.app__data__form}
-            onSubmit={(data) => console.log(data)}
+            className={style.app__data_form}
+            onSubmit={handleSubmit(submit)}
           >
-            <div className={style.app__data__form__inputs}>
+            <div className={style.app__data_fields}>
               <FormInputText
-                value={generalInfo.firstName}
+                control={control}
+                value={dataForm.firstName}
                 type="firstName"
                 placeholder="Имя"
                 minLength={2}
@@ -106,14 +116,16 @@ export default function app(): JSX.Element {
                 pattern={RegForInitials}
                 patternValid={/^[^A-Za-z]+$/gi}
                 onChange={(event) =>
-                  setGeneralInfo({
-                    ...generalInfo,
+                  setDataForm({
+                    ...dataForm,
                     firstName: RepWordUp(event.replace(RegForInitials, "")),
                   })
                 }
+                error={errors}
               />
               <FormInputText
-                value={generalInfo.middleName}
+                control={control}
+                value={dataForm.middleName}
                 type="middleName"
                 placeholder="Отчество"
                 minLength={2}
@@ -121,14 +133,16 @@ export default function app(): JSX.Element {
                 pattern={RegForInitials}
                 patternValid={/^[^A-Za-z]+$/gi}
                 onChange={(event) =>
-                  setGeneralInfo({
-                    ...generalInfo,
+                  setDataForm({
+                    ...dataForm,
                     middleName: RepWordUp(event.replace(RegForInitials, "")),
                   })
                 }
+                error={errors}
               />
               <FormInputText
-                value={generalInfo.lastName}
+                control={control}
+                value={dataForm.lastName}
                 type="lastName"
                 placeholder="Фамилия"
                 minLength={2}
@@ -136,50 +150,69 @@ export default function app(): JSX.Element {
                 pattern={RegForInitials}
                 patternValid={/^[^A-Za-z]+$/gi}
                 onChange={(event) =>
-                  setGeneralInfo({
-                    ...generalInfo,
+                  setDataForm({
+                    ...dataForm,
                     lastName: RepWordUp(event.replace(RegForInitials, "")),
                   })
                 }
+                error={errors}
               />
               <FormInputDate
-                value={generalInfo.numberDate}
+                control={control}
+                value={dataForm.numberDate}
                 type="numberDate"
                 placeholder="Дата рождения"
                 format="##/##/####"
                 onChange={(event) =>
-                  setGeneralInfo({ ...generalInfo, numberDate: event })
+                  setDataForm({ ...dataForm, numberDate: event })
                 }
+                error={errors}
               />
-              <FormInputPhone
-                value={generalInfo.numberPhone}
+              <FormInputNumberFormat
+                control={control}
+                value={dataForm.numberPhone}
                 type="numberPhone"
                 placeholder="Мобильный телефон"
                 format="+7 (###) ###-####"
                 onChange={(event) =>
-                  setGeneralInfo({ ...generalInfo, numberPhone: event })
+                  setDataForm({ ...dataForm, numberPhone: event })
                 }
+                error={errors}
               />
               <FormInputEmail
-                value={generalInfo.email}
+                control={control}
+                value={dataForm.email}
                 type="email"
                 placeholder="Электронная почта"
-                onChange={(event) =>
-                  setGeneralInfo({ ...generalInfo, email: event })
-                }
+                onChange={(event) => setDataForm({ ...dataForm, email: event })}
+                error={errors}
               />
             </div>
-            <div className={style.app__data__form__buttons}>
-              <button
-                className={`${style.app__data__form__btn} custom-btn-orange`}
-              >
-                Продолжить
-              </button>
-              <div className={style.app__data__form__checkbox}>
+            <div className={style.app__data_resume}>
+              <div className={style.app__data_button}>
+                <button
+                  className="custom-btn-orange"
+                  disabled={!dataForm.checkbox}
+                >
+                  Продолжить
+                </button>
+                {!dataForm.checkbox && (
+                  <p className={style.app__data_form__checkbox__error}>
+                    *Вы должны согласиться с политикой обработки
+                    <br />
+                    персональных данных
+                  </p>
+                )}
+              </div>
+              <div className={style.app__data_checkbox}>
                 <input
                   className="custom-checkbox"
                   type="checkbox"
                   id="check-label"
+                  checked={dataForm.checkbox}
+                  onChange={() => {
+                    setDataForm({ ...dataForm, checkbox: !dataForm.checkbox });
+                  }}
                 />
                 <label htmlFor="check-label" />
                 <p>
@@ -191,7 +224,7 @@ export default function app(): JSX.Element {
               </div>
             </div>
           </form>
-        </div>
+        </section>
       </div>
     </div>
   );

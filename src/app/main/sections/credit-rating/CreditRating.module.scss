@@ -1,5 +1,5 @@
 .creditRating,
-.creditRating__description {
+.creditRating_description {
   display: flex;
 }
 
@@ -13,7 +13,7 @@
   border-radius: 40px;
   margin-top: clamp(60px, calc(10vw + (1000px - 100%) * -0.02), 100px);
 
-  &__description {
+  &_description {
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -61,7 +61,7 @@
     }
   }
 
-  &__indicator {
+  &_indicator {
     display: flex;
     justify-content: center;
 

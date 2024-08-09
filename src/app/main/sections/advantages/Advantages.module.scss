@@ -1,5 +1,5 @@
 .advantages,
-.advantages__items {
+.advantages_items {
   display: flex;
 }
 
@@ -10,14 +10,14 @@
   align-items: center;
   overflow: hidden;
 
-  &__title {
+  &_title {
     font-family: "Gilroy-Bold";
     font-size: clamp(16px, 1.8vw, 18px);
     margin: 0px;
     color: #e84b37;
   }
 
-  &__description {
+  &_description {
     font-family: "Gilroy-Bold";
     line-height: 120%;
     font-size: clamp(20px, 3.6vw, 36px);
@@ -26,7 +26,7 @@
     color: #13245d;
   }
 
-  &__items {
+  &_items {
     margin-top: clamp(35px, calc(5vw + (1000px - 100%) * -0.02), 50px);
     flex-direction: row;
     flex-wrap: wrap;

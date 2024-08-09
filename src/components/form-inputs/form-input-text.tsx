@@ -1,10 +1,17 @@
-import { useForm, Controller } from "react-hook-form";
+import {
+  useForm,
+  Controller,
+  Control,
+  FieldValues,
+  FieldErrors,
+} from "react-hook-form";
 
 import { getErrorMessage } from "@utilities/getErrorMessage";
 
 import style from "./form-inputs.module.scss";
 
 export interface IFormInputText {
+  control: Control<FieldValues, any>;
   value: string;
   type: string;
   placeholder: string;
@@ -13,21 +20,18 @@ export interface IFormInputText {
   pattern: RegExp;
   patternValid: RegExp;
   onChange: (event: string) => void;
+  error: FieldErrors;
 }
 
 export default function FormInputText(props: IFormInputText): JSX.Element {
-  const {
-    control,
-    formState: { errors },
-  } = useForm({ mode: "all", shouldUnregister: true }); // settings useFrom
-
-  const errorMessage = getErrorMessage(errors, props.type); // handler errors
+  const {} = useForm({ mode: "all", shouldUnregister: true });
+  const errorMessage = getErrorMessage(props.error, props.type);
 
   return (
-    <div className={style.inputWrap}>
+    <div className={style.formInput}>
       <Controller
         name={props.type}
-        control={control}
+        control={props.control}
         defaultValue={props.value || ""}
         rules={{
           required: "*Необходимо заполнить поле",
@@ -57,7 +61,9 @@ export default function FormInputText(props: IFormInputText): JSX.Element {
           />
         )}
       />
-      <p>{errorMessage && <span>{errorMessage}</span>}</p>
+      <p className={`${style.errorMessage} form-error-message`}>
+        {errorMessage && <span>{errorMessage}</span>}
+      </p>
     </div>
   );
 }

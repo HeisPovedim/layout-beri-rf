@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 //# STYLES
-import style from "./AdvantageItem.module.scss";
+import style from "./advantage-item.module.scss";
 
 type TAdvantageItem = {
   img: HTMLImageElement;

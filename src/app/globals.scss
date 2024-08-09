@@ -287,6 +287,9 @@
 
 .custom-btn-blue {
   font-family: "Gilroy-Bold";
+  text-align: center;
+  align-items: center;
+  justify-content: center;
   color: #6588ff;
   border: 2px solid #6588ff;
   border-radius: 13px;
@@ -298,10 +301,16 @@
     color: #ffffff;
     background-color: #6588ff;
   }
+  &:disabled {
+    background-color: #6588ff80;
+  }
 }
 
 .custom-btn-orange {
   font-family: "Gilroy-SemiBold";
+  text-align: center;
+  align-items: center;
+  justify-content: center;
   color: #ffffff;
   background-color: #e84b37;
   border-radius: 8px;
@@ -311,6 +320,9 @@
   }
   &:active {
     background-color: #d53621;
+  }
+  &:disabled {
+    background-color: #d5362180;
   }
 }
 
@@ -347,4 +359,10 @@
     background-image: url('data:image/svg+xml,<svg width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.8 1.7998L5.96875 12.1998L1.5 7.47253" stroke="%23E84B37" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>');
     background-size: 80%;
   }
+}
+
+.form-error-message {
+  font-size: 10px;
+  font-weight: 700;
+  color: red;
 }
