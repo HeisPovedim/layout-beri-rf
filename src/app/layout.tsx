@@ -3,6 +3,9 @@ import { Inter } from "next/font/google";
 import "@assets/reset-styles.scss";
 import "./globals.scss";
 
+import Header from "@/shared/ui/Header/Header";
+import Footer from "@/shared/ui/Footer/Footer";
+
 const inter = Inter({ subsets: ["latin"] });
 
 // Description site
@@ -16,7 +19,13 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="ru">
-      <body className={`${inter.className} root`}>{children}</body>
+      <body className={`${inter.className} root`}>
+        <div className="non-sticking">
+          <Header />
+          {children}
+          <Footer />
+        </div>
+      </body>
     </html>
   );
 }

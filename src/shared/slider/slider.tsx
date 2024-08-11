@@ -10,14 +10,14 @@ interface TCSlider {
   step: number;
   start: number;
   symbolTooltip: string;
-  tooltip: boolean;
+  description: string[];
   styles: {
     colorSlider: string;
     colorThumb: string;
     colorThumbOpacity: string;
   };
   onChange: (values: number) => void;
-};
+}
 
 export default function CSlider(props: TCSlider): JSX.Element {
   const [sliderValue, setSliderValue] = useState<number>(props.start);
@@ -67,7 +67,7 @@ export default function CSlider(props: TCSlider): JSX.Element {
         } as React.CSSProperties
       }
     >
-      {props.tooltip && (
+      {props.symbolTooltip && (
         <span
           ref={tooltipRef}
           className={style.tooltip}
@@ -89,10 +89,18 @@ export default function CSlider(props: TCSlider): JSX.Element {
           max={props.max}
           step={props.step}
           onChange={(val) => handleOnChange(val)}
-          style={{
-            backgroundSize: `${(sliderValue / props.max) * 100}% 100%`,
-          }}
+          style={
+            {
+              backgroundSize: `${(sliderValue / props.max) * 100}% 100%`
+            } as React.CSSProperties
+          }
         />
+        {props.description && (
+          <div className={style["slider__extremum"]}>
+            <p>{props.description[0]}</p>
+            <p>{props.description[1]}</p>
+          </div>
+        )}
       </div>
     </div>
   );

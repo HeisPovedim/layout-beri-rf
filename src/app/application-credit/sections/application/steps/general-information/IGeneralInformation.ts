@@ -1,6 +1,6 @@
 export interface ISliderValue {
-  amount: number,
-  days: number,
+  amount: number;
+  days: number;
 }
 
 export interface IDataForm {
@@ -10,5 +10,5 @@ export interface IDataForm {
   numberDate: number | null;
   numberPhone: number | null;
   email: string;
-  checkbox: boolean
+  checkbox: boolean;
 }

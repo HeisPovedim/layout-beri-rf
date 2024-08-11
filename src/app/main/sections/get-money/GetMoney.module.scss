@@ -1,32 +1,31 @@
-.getMoney,
-.getMoney__slider,
-.getMoney__slider__slider,
-.getMoney__slider__price,
-.getMoney__slider__button {
+.get-money,
+.get-money__slider,
+.get-money__slider__slider,
+.get-money__slider__price,
+.get-money__slider__button {
   display: flex;
 }
 
-.getMoney {
+.get-money {
   flex-direction: row;
   justify-content: space-between;
-  margin-top: clamp(30px, calc(6.5vw + (1000px - 100%) * -0.02), 65px);
 
-  &__info {
+  &__cover {
     position: relative;
     display: flex;
 
-    &_imageMobile {
+    &--mobile {
       display: none;
     }
 
     @media (max-width: 1200px) {
       justify-content: center;
 
-      &_imageDesktop {
+      &--desktop {
         display: none;
       }
 
-      &_imageMobile {
+      &--mobile {
         display: block;
       }
     }
@@ -39,7 +38,7 @@
   }
 }
 
-.getMoney__slider {
+.get-money__slider {
   align-items: center;
   justify-content: center;
   flex-direction: column;
@@ -48,13 +47,13 @@
   background-color: #ffffff;
   box-shadow: 3px 9px 13px 0px #00000021;
 
-  &_title {
+  &__title {
     margin: 0;
     font-size: clamp(30px, 4vw, 40px);
     text-align: center;
     color: #13245d;
   }
-  &_description {
+  &__description {
     margin: 0;
     font-size: clamp(18px, 2vw, 20px);
     text-align: center;
@@ -62,26 +61,14 @@
   &_description span {
     color: #e84b37;
   }
-  &_choice {
+  &__choice {
     flex-direction: column;
     align-items: stretch;
     margin-top: 140px;
     width: 75%;
-
-    & a {
-      width: 100%;
-    }
-
-    & > div:last-child {
-      display: flex;
-      justify-content: space-between;
-      width: 100%;
-      font-size: 18px;
-      color: #00000066;
-    }
   }
 
-  &_button {
+  &__btn {
     font-size: 25px;
     width: 100%;
     height: 72px;

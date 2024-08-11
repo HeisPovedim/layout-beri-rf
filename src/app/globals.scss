@@ -274,7 +274,8 @@
 }
 
 .root {
-  margin: 0 20px;
+  margin: 0 auto;
+  width: min(1180px, 100%);
   font-family: "Gilroy-Regular";
   background-image: url("../../assets/background.svg");
   background-repeat: no-repeat;
@@ -282,7 +283,12 @@
   background-repeat: no-repeat;
 
   --main-title-color: #13245d;
+  --main-blue-color: #6588FF;
   --font-medium-weight: "Gilroy-Medium";
+}
+
+.non-sticking {
+  margin: 0 20px;
 }
 
 .custom-btn-blue {

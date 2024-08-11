@@ -5,7 +5,7 @@
   border-radius: 20px;
   background-color: #b0b5c566;
   padding: 20px;
-  width: 326px;
+  width: min(367px, 100%);
   &:nth-child(2) {
     background-color: #fff5f4;
   }

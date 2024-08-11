@@ -31,6 +31,11 @@ export default function Articles(): JSX.Element {
           title="Название статьи"
           description="Краткое описание данной статьи"
         />
+        <ArticleItem
+          img={articles_1}
+          title="Название статьи"
+          description="Краткое описание данной статьи"
+        />
       </div>
     </div>
   );

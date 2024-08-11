@@ -11,18 +11,21 @@ import { getErrorMessage } from "@utilities/getErrorMessage";
 
 import style from "./form-inputs.module.scss";
 
-export interface IFormInputPhone {
+export interface IFormInputNumberFormat {
   control: Control<FieldValues, any>;
   value: number | null;
   type: string;
   placeholder: string;
   format: string;
-  onChange: (event: number | null) => void;
+  mask: string;
+  minLength: number;
   error: FieldErrors;
+  errorMessage: string;
+  onChange: (event: number | null) => void;
 }
 
 export default function FormInputNumberFormat(
-  props: IFormInputPhone
+  props: IFormInputNumberFormat
 ): JSX.Element {
   const {} = useForm({ mode: "all", shouldUnregister: true });
   const errorMessage = getErrorMessage(props.error, props.type);
@@ -36,8 +39,8 @@ export default function FormInputNumberFormat(
         rules={{
           required: "*Необходимо заполнить поле",
           minLength: {
-            value: 10,
-            message: "*Заполните полностью номер телефона",
+            value: props.minLength,
+            message: props.errorMessage,
           },
         }}
         render={({ field: { onChange, onBlur } }) => (
@@ -47,7 +50,7 @@ export default function FormInputNumberFormat(
             value={props.value}
             format={props.format}
             placeholder={props.placeholder}
-            mask={"_"}
+            mask={props.mask}
             onValueChange={(values: NumberFormatValues) => {
               onChange(values.value);
               props.onChange(+values.value ? +values.value : null);

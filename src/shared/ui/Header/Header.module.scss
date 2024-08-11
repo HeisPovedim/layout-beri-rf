@@ -1,12 +1,14 @@
 .header {
   position: relative;
+  margin-top: 30px;
+  margin-bottom: clamp(30px, calc(6.5vw + (1000px - 100%) * -0.02), 60px);
+
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 30px;
 
   & img {
-    width: clamp(134px, calc(16.9vw + (1000px - 100%) * 0.10), 169px);
+    width: clamp(134px, calc(16.9vw + (1000px - 100%) * 0.1), 169px);
     height: auto;
   }
 
