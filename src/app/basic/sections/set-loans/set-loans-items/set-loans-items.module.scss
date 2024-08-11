@@ -1,0 +1,34 @@
+.cardCredit__item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 20px;
+  background-color: #b0b5c566;
+  padding: 20px;
+  width: min(367px, 100%);
+
+  &:nth-child(2) {
+    background-color: #fff5f4;
+  }
+
+  &:hover {
+    box-shadow: 3px 4px 3px 0px #71717166;
+  }
+
+  &__title,
+  &__info,
+  &__btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__title span,
+  &__info li > span {
+    font-weight: 700;
+  }
+
+  &__btn button {
+    padding: 10px 15px;
+  }
+}

@@ -2,11 +2,11 @@ import style from "./Button.module.scss";
 
 interface IButton {
   customClassName?: string;
-  variant: "orange" | "blue";
+  variant: "orange" | "blue" | "blue-underline";
   type: "button" | "submit" | "reset";
-  // onClick?: () => void;
   disabled?: boolean;
   text: string;
+  onClick?: () => void;
 }
 
 export default function Button(props: IButton):JSX.Element {
@@ -14,8 +14,8 @@ export default function Button(props: IButton):JSX.Element {
     <button
       className={`${props.customClassName} ${style["button"]} ${style[`button--${props.variant}`]}`}
       type={props.type}
-      // onClick={onClick}
       disabled={props.disabled}
+      onClick={props.onClick}
     >
       {props.text}
     </button>

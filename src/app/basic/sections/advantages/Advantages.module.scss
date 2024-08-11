@@ -1,0 +1,48 @@
+.advantages,
+.advantages_items {
+  display: flex;
+}
+
+.advantages {
+  position: relative;
+  margin-top: clamp(60px, calc(10vw + (1000px - 100%) * -0.02), 100px);
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+
+  &_title {
+    font-size: clamp(16px, 1.8vw, 18px);
+    font-weight: 600;
+    margin: 0px;
+    color: #e84b37;
+  }
+
+  &_description {
+    margin: 8px 0 0 0;
+
+    font-size: clamp(20px, 3.6vw, 36px);
+    font-weight: 600;
+    text-align: center;
+    line-height: 120%;
+    color: var(--main-title-color);
+  }
+
+  &_items {
+    margin-top: clamp(35px, calc(5vw + (1000px - 100%) * -0.02), 50px);
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: clamp(45px, calc(11.3vw + (1000px - 100%) * -0.02), 113px);
+  }
+
+  &::after {
+    content: url("./img/advantages-dots.svg");
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  @media (max-width: 1200px) {
+    margin-top: 60px;
+  }
+}

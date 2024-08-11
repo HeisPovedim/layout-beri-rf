@@ -3,6 +3,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
+import Button from "@shared/ui/Button/Button";
 import NavMenu from "@components/nav-menu/nav-menu";
 import Hamburger from "@components/hamburger/hamburger";
 import logo from "@assets/logo.svg";
@@ -24,17 +25,20 @@ export default function CHeader(): JSX.Element {
         <nav className={style.header__navDesktop}>
           <NavMenu />
         </nav>
-        <button className={`${style.header__logIn} custom-btn-blue`}>
-          Войти
-        </button>
+        <Button
+          customClassName={`${style["header__logIn"]}`}
+          variant="blue"
+          type="button"
+          text="Войти"
+        />
       </div>
       <AnimatePresence>
         {isActiveBurger && (
           <motion.nav
-            initial={{ opacity: 0, y: -30 }} // Начальное состояние
-            animate={{ opacity: 1, y: 0 }} // Конечное состояние
-            exit={{ opacity: 0, y: -20 }} // Состояние при выходе
-            transition={{ duration: 0.3 }} // Длительность анимации
+            initial={{ opacity: 0, y: -30 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3 }}
             className={style.header__navMobile}
           >
             <NavMenu />

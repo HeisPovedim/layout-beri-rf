@@ -1,0 +1,147 @@
+.general-info {
+  &__sliders {
+    margin-top: clamp(40px, calc(5vw + (1000px - 100%) * -0.02), 50px);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  &__data {
+    margin-top: clamp(40px, calc(5vw + (1000px - 100%) * -0.02), 50px);
+  }
+}
+
+.sliders {
+  &__title {
+    font-size: clamp(25px, 3vw, 30px);
+    font-weight: 600;
+    color: var(--main-title-color);
+  }
+
+  &__grid {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    gap: 70px;
+    width: 100%;
+
+    &__item {
+      width: 100%;
+
+      &__value {
+        margin-top: 18px;
+
+        font-size: clamp(22px, 2.5vw, 25px);
+        font-weight: 500;
+        color: var(--main-title-color);
+      }
+    }
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
+  }
+}
+
+.data {
+  &__title {
+    font-size: clamp(25px, 3vw, 30px);
+    font-weight: 600;
+    color: var(--main-title-color);
+  }
+
+  &__form {
+    margin-top: 25px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: clamp(25px, calc(6vw + (1000px - 100%) * -0.02), 60px);
+
+    &__fields {
+      display: grid;
+      justify-items: center;
+      grid-template-columns: repeat(3, auto);
+      gap: 30px;
+
+      & > div {
+        width: 100%;
+      }
+
+      & input {
+        padding: 25px;
+      }
+    }
+
+    &__resume {
+      display: flex;
+      align-items: center;
+
+      gap: clamp(25px, calc(7vw + (1000px - 100%) * -0.02), 70px);
+
+      &__btn {
+        position: relative;
+        display: flex;
+        justify-content: center;
+
+        & > button {
+          padding: 20px 55px;
+          border-radius: 14px;
+          width: min(310px, 100%);
+
+          font-size: 26px;
+          font-weight: 700;
+        }
+      }
+
+      &--valid-checkbox {
+        position: absolute;
+        bottom: -35%;
+      }
+
+      &__checkbox {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: center;
+
+        gap: 15px;
+
+        &__assent {
+          width: min(510px, 100%);
+          font-size: clamp(12px, 1.6vw, 16px);
+          color: var(--main-title-color);
+
+          & > span {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+
+    @media (max-width: 900px) {
+      &__fields {
+        grid-template-columns: repeat(2, auto);
+      }
+
+      &__resume {
+        flex-direction: column;
+        align-items: unset;
+      }
+
+      &__btn {
+        order: 1;
+      }
+
+      &__checkbox {
+        order: 0;
+      }
+    }
+
+    @media (max-width: 600px) {
+      &__fields {
+        grid-template-columns: repeat(1, auto);
+      }
+    }
+  }
+}
