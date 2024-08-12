@@ -7,7 +7,7 @@ import {
 } from "react-hook-form";
 import { PatternFormat, NumberFormatValues } from "react-number-format";
 
-import { validateDate } from "@helpers/validateDate";
+import { validateDate } from "@/helpers/validate-date";
 import { getErrorMessage } from "@utilities/getErrorMessage";
 
 import style from "./form-inputs.module.scss";

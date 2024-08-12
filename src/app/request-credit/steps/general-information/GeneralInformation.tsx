@@ -3,6 +3,11 @@ import { useState } from "react";
 import { FieldValue, SubmitHandler, useForm } from "react-hook-form";
 import { useSearchParams } from "next/navigation";
 
+// LOCAL_STORAGE
+import { getStoredData, setStoredData } from "@utilities/localStorage";
+import { StorageKeys } from "@config/local-storage/localStorageKeys";
+
+// INPUTS
 import FormInputText from "@components/form-inputs/form-input-text";
 import FormInputDate from "@components/form-inputs/form-input-date";
 import FormInputNumberFormat from "@components/form-inputs/form-input-number-format";
@@ -10,10 +15,12 @@ import FormInputEmail from "@components/form-inputs/form-input-email";
 import Slider from "@shared/slider/slider";
 import Button from "@/shared/ui/Button/Button";
 
+// HELPERS
 import { RegForInitials } from "@helpers/reg-set";
-import { RepWordUp } from "@helpers/rep-word-up";
+import { RepWordUp } from "@/helpers/rep-word-up";
 
-import { ISliderValue, IDataForm } from "./IGeneralInformation";
+// INTERFACES
+import { ISliderValue, IDataForm } from "../../../../interfaces/IGeneralInformation";
 
 import style from "./GeneralInformation.module.scss";
 
@@ -28,16 +35,26 @@ export default function GeneralInformation() {
     amount: parseInt(useSearchParams().get("amount") || "1000", 10),
     days: 5,
   });
+  const [checkbox, setCheckbox] = useState<boolean>(false);
 
-  const [dataForm, setDataForm] = useState<IDataForm>({
-    firstName: "",
-    lastName: "",
-    middleName: "",
-    numberDate: null,
-    numberPhone: null,
-    email: "",
-    checkbox: false,
-  });
+  const [dataForm, setDataForm] = useState<IDataForm>(
+    () =>
+      getStoredData(StorageKeys.GENERAL_INFO) || {
+        firstName: "",
+        lastName: "",
+        middleName: "",
+        numberDate: null,
+        numberPhone: null,
+        email: "",
+        checkbox: false,
+      }
+  );
+
+  const updateDataForm = (newData: Partial<IDataForm>) => {
+    const updatedData = { ...dataForm, ...newData };
+    setDataForm(updatedData);
+    setStoredData(StorageKeys.GENERAL_INFO, updatedData);
+  };
 
   const submit: SubmitHandler<FieldValue<any>> = (data) => {
     console.log(data);
@@ -106,8 +123,7 @@ export default function GeneralInformation() {
               pattern={RegForInitials}
               patternValid={/^[^A-Za-z]+$/gi}
               onChange={(event) =>
-                setDataForm({
-                  ...dataForm,
+                updateDataForm({
                   firstName: RepWordUp(event.replace(RegForInitials, "")),
                 })
               }
@@ -123,8 +139,7 @@ export default function GeneralInformation() {
               pattern={RegForInitials}
               patternValid={/^[^A-Za-z]+$/gi}
               onChange={(event) =>
-                setDataForm({
-                  ...dataForm,
+                updateDataForm({
                   middleName: RepWordUp(event.replace(RegForInitials, "")),
                 })
               }
@@ -140,8 +155,7 @@ export default function GeneralInformation() {
               pattern={RegForInitials}
               patternValid={/^[^A-Za-z]+$/gi}
               onChange={(event) =>
-                setDataForm({
-                  ...dataForm,
+                updateDataForm({
                   lastName: RepWordUp(event.replace(RegForInitials, "")),
                 })
               }
@@ -153,9 +167,7 @@ export default function GeneralInformation() {
               type="numberDate"
               placeholder="Дата рождения"
               format="##/##/####"
-              onChange={(event) =>
-                setDataForm({ ...dataForm, numberDate: event })
-              }
+              onChange={(event) => updateDataForm({ numberDate: event })}
               error={errors}
             />
             <FormInputNumberFormat
@@ -168,16 +180,14 @@ export default function GeneralInformation() {
               minLength={10}
               error={errors}
               errorMessage="*Заполните полностью номер телефона"
-              onChange={(event) =>
-                setDataForm({ ...dataForm, numberPhone: event })
-              }
+              onChange={(event) => updateDataForm({ numberPhone: event })}
             />
             <FormInputEmail
               control={control}
               value={dataForm.email}
               type="email"
               placeholder="Электронная почта"
-              onChange={(event) => setDataForm({ ...dataForm, email: event })}
+              onChange={(event) => updateDataForm({ email: event })}
               error={errors}
             />
           </div>
@@ -187,10 +197,10 @@ export default function GeneralInformation() {
                 customClassName={`${style["valid-code__approval__resume"]}`}
                 variant="orange"
                 type="submit"
-                disabled={!dataForm.checkbox}
+                disabled={!checkbox}
                 text="Продолжить"
               />
-              {!dataForm.checkbox && (
+              {!checkbox && (
                 <p
                   className={`${style["data__form__resume--valid-checkbox"]} form-error-message`}
                 >
@@ -205,9 +215,9 @@ export default function GeneralInformation() {
                 className="custom-checkbox"
                 type="checkbox"
                 id="check-label"
-                checked={dataForm.checkbox}
+                checked={checkbox}
                 onChange={() => {
-                  setDataForm({ ...dataForm, checkbox: !dataForm.checkbox });
+                  setCheckbox(!checkbox);
                 }}
               />
               <label htmlFor="check-label" />

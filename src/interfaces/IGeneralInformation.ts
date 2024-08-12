@@ -10,5 +10,4 @@ export interface IDataForm {
   numberDate: number | null;
   numberPhone: number | null;
   email: string;
-  checkbox: boolean;
 }

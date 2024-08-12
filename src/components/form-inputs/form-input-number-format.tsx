@@ -12,6 +12,7 @@ import { getErrorMessage } from "@utilities/getErrorMessage";
 import style from "./form-inputs.module.scss";
 
 export interface IFormInputNumberFormat {
+  customClassName?: string;
   control: Control<FieldValues, any>;
   value: number | null;
   type: string;
@@ -45,7 +46,7 @@ export default function FormInputNumberFormat(
         }}
         render={({ field: { onChange, onBlur } }) => (
           <PatternFormat
-            className="custom-input"
+            className={`custom-input ${props.customClassName}`}
             name={props.type}
             value={props.value}
             format={props.format}

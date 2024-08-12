@@ -9,6 +9,7 @@
 
   &__sections-wrapper {
     display: flex;
+    justify-content: space-between;
   }
 
   &__valid-code {
@@ -44,7 +45,7 @@
     flex-direction: row;
     gap: 15px;
 
-    &_phone{
+    &_phone {
       font-weight: 600;
       font-size: 30px;
       color: var(--main-title-color);

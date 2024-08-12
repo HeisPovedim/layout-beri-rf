@@ -25,8 +25,17 @@
       "@helpers/*": ["./src/helpers/*"],
       "@utilities/*": ["./src/utilities/*"],
       "@shared/*": ["./src/shared/*"],
+      "@config/*": ["./src/config/*"],
+      "@interfaces/*": ["./src/interfaces/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/shared/slider/Slider copy.copy", "src/shared/slider/Slider copy.cope"],
-  "exclude": ["node_modules"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "src/shared/slider/Slider copy.copy",
+    "src/shared/slider/Slider copy.cope"
+  ],
+  "exclude": ["node_modules"]
 }
