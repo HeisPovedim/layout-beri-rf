@@ -24,7 +24,11 @@ import { ISliderValue, IDataForm } from "../../../../interfaces/IGeneralInformat
 
 import style from "./GeneralInformation.module.scss";
 
-export default function GeneralInformation() {
+interface IGeneralInformation {
+  nextStep: () => void;
+}
+
+export default function GeneralInformation(props: IGeneralInformation): JSX.Element {
   const {
     control,
     handleSubmit,
@@ -58,6 +62,7 @@ export default function GeneralInformation() {
 
   const submit: SubmitHandler<FieldValue<any>> = (data) => {
     console.log(data);
+    props.nextStep();
   };
 
   return (
@@ -175,7 +180,7 @@ export default function GeneralInformation() {
               value={dataForm.numberPhone}
               type="numberPhone"
               placeholder="Мобильный телефон"
-              format="+7 (###) ###-####"
+              format="+7 (###) ###-##-##"
               mask="_"
               minLength={10}
               error={errors}

@@ -1,6 +1,8 @@
 // LIBRARIES
-import { useState } from "react";
 import { useForm } from "react-hook-form";
+
+// LOCAL_STORAGE
+import { StorageKeys } from "@config/local-storage/localStorageKeys";
 
 // INPUTS
 import FormInputNumberFormat from "@/components/form-inputs/form-input-number-format";
@@ -14,6 +16,7 @@ import style from "./change-current-phone.module.scss";
 
 interface IChangeCurrentPhone {
   isOpen: boolean;
+  onChangeCurrentPhone: (value: any) => void;
   isClose: () => void;
   onSubmit?: (data: any, type: string) => void;
 }
@@ -28,7 +31,15 @@ export default function ChangeCurrentPhone(
   } = useForm({ mode: "all" });
 
   const onSubmit = (data: any) => {
-    console.log(data);
+    props.onChangeCurrentPhone(data.numberPhone);
+
+    const currentData = JSON.parse(
+      localStorage.getItem(StorageKeys.GENERAL_INFO) || "{}"
+    );
+    currentData.numberPhone = data.numberPhone;
+    localStorage.setItem(StorageKeys.GENERAL_INFO, JSON.stringify(currentData));
+
+    props.isClose();
   };
 
   return (
@@ -46,12 +57,12 @@ export default function ChangeCurrentPhone(
             value={null}
             type="numberPhone"
             placeholder="Мобильный телефон"
-            format="+7 (###) ###-####"
+            format="+7 (###) ###-##-##"
             mask="_"
             minLength={10}
             error={errors}
             errorMessage="*Заполните полностью номер телефона"
-            onChange={(event) => console.log(event)}
+            onChange={() => {}}
           />
           <Button
             customClassName={`${style["modalWindow__changeCurrentPhone_btn"]}`}

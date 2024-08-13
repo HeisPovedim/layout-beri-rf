@@ -23,22 +23,23 @@ import Button from "@shared/ui/Button/Button";
 // STYLES && IMG
 import style from "./ConfirmationPhone.module.scss";
 import ImgCover from "./img/cover.png";
+import { format } from "path";
 
 export default function ConfirmationPhone(): JSX.Element {
   const {
-    control: controlConfirmCode,
-    handleSubmit: handleSubmitConfirmCode,
-    formState: { errors: errorsConfirmCode },
+    control,
+    handleSubmit,
+    formState: { errors },
   } = useForm({ mode: "all" });
 
   const [code, setCode] = useState<number | null>(null);
   const [isOpenModalWindow, setIsOpenModalWindow] = useState(false);
-  const [phoneNumber, setPhoneNumber] = useState("+7 (999) 999-99-99");
+  const [phoneNumber, setPhoneNumber] = useState("");
 
   useEffect(() => {
     const generalInfo = getStoredData(StorageKeys.GENERAL_INFO) as IDataForm;
     if (generalInfo?.numberPhone) {
-      setPhoneNumber(formatPhoneNumber(generalInfo.numberPhone.toString()));
+      setPhoneNumber(generalInfo.numberPhone.toString());
     }
   }, []);
 
@@ -58,7 +59,7 @@ export default function ConfirmationPhone(): JSX.Element {
         <section className={style["confirmation-phone__valid-code"]}>
           <div className={style["valid-code__current-phone"]}>
             <p className={style["valid-code__current-phone_phone"]}>
-              {phoneNumber}
+              {formatPhoneNumber(phoneNumber)}
             </p>
             <Button
               customClassName={style["valid-code__current-phone_btn"]}
@@ -67,18 +68,22 @@ export default function ConfirmationPhone(): JSX.Element {
               text="Изменить"
               onClick={() => setIsOpenModalWindow(true)}
             />
-            <ChangeCurrentPhone isOpen={isOpenModalWindow} isClose={() => setIsOpenModalWindow(false)} />
+            <ChangeCurrentPhone
+              isOpen={isOpenModalWindow}
+              isClose={() => setIsOpenModalWindow(false)}
+              onChangeCurrentPhone={(value) => setPhoneNumber(value)}
+            />
           </div>
           <form className={style["valid-code__approval"]}>
             <FormInputNumberFormat
-              control={controlConfirmCode}
+              control={control}
               value={null}
               type="code"
               placeholder="Код подтверждения"
               format="####"
               mask=" "
               minLength={4}
-              error={errorsConfirmCode}
+              error={errors}
               errorMessage="*Заполните полностью поле"
               onChange={(val) => setCode(val)}
             />

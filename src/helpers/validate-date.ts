@@ -1,5 +1,8 @@
 // Function to validate the date format (DD/MM/YYYY)
 export const validateDate = (value: string) => {
+  if (+value) {
+    value = value.toString();
+  }
   const day = parseInt(value.slice(0, 2), 10);
   const month = parseInt(value.slice(2, 4), 10);
   const year = parseInt(value.slice(4), 10);

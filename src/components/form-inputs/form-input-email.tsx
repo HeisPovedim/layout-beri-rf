@@ -28,6 +28,7 @@ export default function FormInputEmail(props: IFormInputEmail): JSX.Element {
       <Controller
         name={props.type}
         control={props.control}
+        defaultValue={props.value || ""}
         rules={{
           required: "*Необходимо заполнить поле",
           pattern: {
