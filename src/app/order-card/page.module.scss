@@ -5,20 +5,11 @@
 
   background-color: #eef3ff;
   border-radius: 30px;
-  padding: 55px 105px;
-
-  &__image {
-    & > img {
-      width: 100%;
-      max-width: 376px;
-      height: auto;
-      object-fit: contain;
-    }
-  }
+  padding: 55px clamp(48px, 10.5vw + (1000px - 100%) * -0.02, 105px);
 
   &__info {
     &_title {
-      font-size: 43px;
+      font-size: clamp(30px, 4.3vw, 43px);
       font-weight: 600;
     }
 
@@ -54,6 +45,27 @@
 
       font-size: 26px;
       font-weight: 700;
+    }
+  }
+
+  @media (max-width: 1200px) {
+    flex-direction: column;
+    align-items: center;
+
+    &__info {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      &__items {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      &__item {
+        align-items: center;
+      }
     }
   }
 }
@@ -113,6 +125,69 @@
           }
         }
       }
+    }
+  }
+}
+
+.how-get {
+  margin-top: clamp(60px, 8vw + (1000px - 100%) * -0.02, 80px);
+  padding: 50px 40px;
+
+  display: flex;
+  flex-direction: column;
+  gap: clamp(30px, 5vw + (1000px - 100%) * -0.02, 50px);
+
+  border-radius: 30px;
+  background-color: #edf1ff66;
+
+  &__title {
+    font-size: clamp(25px, 3.6vw, 36px);
+    font-weight: 600px;
+    color: var(--main-title-color);
+  }
+
+  &__items {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 30px;
+
+    @media (max-width: 1120px) {
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+  }
+
+  & li {
+    display: flex;
+    gap: 10px;
+    font-size: clamp(18px, 2vw, 20px);
+    color: var(--main-title-color);
+
+    &:nth-child(1)::before {
+      content: "1";
+    }
+
+    &:nth-child(2)::before {
+      content: "2";
+    }
+
+    &:nth-child(3)::before {
+      content: "3";
+    }
+
+    &::before {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      font-size: clam(17px, 2.4vw, 24px);
+      font-weight: 700;
+      color: white;
+      width: 35px;
+      height: 35px;
+      background-color: #6588ff;
+      border-radius: 100%;
     }
   }
 }

@@ -204,6 +204,24 @@ export default function OrderCard() {
           </div>
         </div>
       </section>
+      <section className={style["how-get"]}>
+        <h1 className={style["how-get__title"]}>
+          Как получить кредитную карту
+        </h1>
+        <ul className={style["how-get__items"]}>
+          <li>
+            Заполните заявку на сайте для
+            <br /> получения кредитной карты
+          </li>
+          <li>
+            Дождитесь смс-сообщения
+            <br /> с решением банка
+          </li>
+          <li>
+            Получите карту в<br /> выбранном офисе банка
+          </li>
+        </ul>
+      </section>
     </div>
   );
 }
